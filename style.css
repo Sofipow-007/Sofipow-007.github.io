@@ -329,19 +329,6 @@ footer {
     z-index: 2000;
 }
 
-/* .modal-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 18px;
-    padding: 4px 7px;
-    border-radius: 999px;
-    font-size: 0.9rem;
-    color: var(--primary);
-    background: var(--primary-soft);
-    border: 1px solid rgba(155, 123, 100, 0.24);
-} */
-
 .modal.hidden {
     display: none;
 }
@@ -375,6 +362,19 @@ footer {
     align-self: flex-end;
     font-size: 1.2rem;
     color: var(--text-soft);
+}
+
+.modal-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 4px 7px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    color: var(--primary);
+    background: var(--primary-soft);
+    border: 1px solid rgba(155, 123, 100, 0.24);
 }
 
 .modal-images {

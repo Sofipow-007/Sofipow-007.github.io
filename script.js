@@ -8,6 +8,7 @@ const PROJECTS = [
       fullDesc: "Sistema completo de usuarios con login, tokens manuales, middleware de autorización y endpoints protegidos.",
       github: "https://github.com/Sofipow-007/FitPocket",
       demo: "",
+      estado: "En Proceso",
       images: []
     },
     {
@@ -16,6 +17,7 @@ const PROJECTS = [
       fullDesc: "Aplicación en React que consume API, maneja estados y muestra libros por género, década y preferencias.",
       github: "https://github.com/AlejoGuerraa/nextRead",
       demo: "",
+      estado: "Finalizado",
       images: []
     },
     {
@@ -24,6 +26,7 @@ const PROJECTS = [
       fullDesc: "Diseño completo en MySQL Workbench con relaciones complejas, tablas intermedias y datos de prueba.",
       github: "https://github.com/Sofipow-007/Escaner-de-Red",
       demo: "",
+      estado: "Finalizado",
       images: []
     },
   ];
@@ -50,6 +53,7 @@ const PROJECTS = [
       card.className = "project-card";
   
       card.innerHTML = `
+        <h4 class="modal-tag">${project.estado}</h4>
         <h3 class="project-title">${project.title}</h3>
         <p class="project-desc">${project.shortDesc}</p>
       `;
@@ -83,7 +87,8 @@ const PROJECTS = [
   
   function openModal(project) {
     const modal = document.getElementById("project-modal");
-  
+    
+    document.getElementById("modal-tag").textContent = project.estado
     document.getElementById("modal-title").textContent = project.title;
     document.getElementById("modal-description").textContent = project.fullDesc;
   
