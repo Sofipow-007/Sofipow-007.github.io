@@ -5,7 +5,8 @@ const PROJECTS = [
     {
       title: "FitPocket",
       shortDesc: "Aplicación Personal de Fitness",
-      fullDesc: "Sistema completo de usuarios con login, tokens manuales, middleware de autorización y endpoints protegidos.",
+      fullDesc: "Sistema completo de planes de entrenamiento y dietas creados por la IA, que se organiza con checkins diarios automatizados. Incluye un cálculo de ICM promedio, onboarding para que cada usuario ingrese sus datos personales, y más funcionalidades.",
+      tech: ["Node.js", "N8N", ""],
       github: "https://github.com/Sofipow-007/FitPocket",
       demo: "",
       estado: "En Proceso",
