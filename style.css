@@ -272,7 +272,6 @@ footer {
 .section-title {
     font-family: "DM Serif Display", serif;
     font-size: clamp(1.7rem, 3vw, 2.4rem);
-    text-transform: lowercase;
     letter-spacing: 0.3px;
 }
 
@@ -393,6 +392,40 @@ footer {
     color: var(--primary);
     background: var(--primary-soft);
     border: 1px solid rgba(155, 123, 100, 0.24);
+}
+
+.modal-tech-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-tech-title {
+    color: var(--text);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.modal-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.modal-tech-pill {
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.modal-tech-pill:hover {
+    background: rgba(155,123,255,0.12);
+    border-color: var(--border-strong);
+    color: var(--text);
 }
 
 .modal-images {
