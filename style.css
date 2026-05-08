@@ -415,7 +415,7 @@ footer {
 .modal-tech-pill {
     padding: 8px 14px;
     border-radius: 999px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border);
     color: var(--text-soft);
     font-size: 0.9rem;
@@ -423,7 +423,7 @@ footer {
 }
 
 .modal-tech-pill:hover {
-    background: rgba(155,123,255,0.12);
+    background: rgba(155, 123, 255, 0.12);
     border-color: var(--border-strong);
     color: var(--text);
 }
@@ -581,6 +581,75 @@ footer {
 
 .muted {
     color: var(--muted);
+}
+
+/* ============ STARS CANVAS ============ */
+#stars-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ============ SCROLL REVEAL ============ */
+
+/* Estado inicial */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+/* Estado visible — se activa con JS */
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Variantes de dirección (opcionales) */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Delays escalonados — para grupos de elementos */
+.reveal-delay-1 {
+    transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+    transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+    transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+    transition-delay: 0.4s;
+}
+
+.reveal-delay-5 {
+    transition-delay: 0.5s;
 }
 
 /* ============ RESPONSIVE ============ */

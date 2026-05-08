@@ -138,3 +138,137 @@ function openModal(project) {
 
   modal.classList.remove("hidden");
 }
+
+// ============================================================
+//  ANIMACIÓN DE ESTRELLAS — Hero del HTML
+// ============================================================
+(function initStars() {
+  const canvas = document.getElementById("stars-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+
+  // — Configuración — ajustá estos valores a tu gusto
+  const CONFIG = {
+    count:        120,    // cantidad de estrellas
+    speedMin:     0.08,   // velocidad mínima de caída
+    speedMax:     0.35,   // velocidad máxima de caída
+    sizeMin:      0.4,    // tamaño mínimo (px)
+    sizeMax:      1.8,    // tamaño máximo (px)
+    twinkleSpeed: 0.012,  // qué tan rápido parpadean
+    color:        "155, 123, 255",  // RGB del --primary de tu CSS
+  };
+
+  let stars = [];
+  let animId;
+
+  // Redimensiona el canvas al tamaño del hero
+  function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  // Crea una estrella con valores aleatorios
+  function createStar(randomY = false) {
+    return {
+      x:       Math.random() * canvas.width,
+      y:       randomY ? Math.random() * canvas.height : -5,
+      size:    CONFIG.sizeMin + Math.random() * (CONFIG.sizeMax - CONFIG.sizeMin),
+      speed:   CONFIG.speedMin + Math.random() * (CONFIG.speedMax - CONFIG.speedMin),
+      opacity: Math.random(),
+      delta:   (Math.random() > 0.5 ? 1 : -1) * CONFIG.twinkleSpeed,
+    };
+  }
+
+  function initStarField() {
+    // Al inicio llenamos el canvas con estrellas en posiciones aleatorias
+    stars = Array.from({ length: CONFIG.count }, () => createStar(true));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    stars.forEach(star => {
+      // Parpadeo
+      star.opacity += star.delta;
+      if (star.opacity >= 1)   { star.opacity = 1;   star.delta *= -1; }
+      if (star.opacity <= 0.1) { star.opacity = 0.1; star.delta *= -1; }
+
+      // Caída lenta
+      star.y += star.speed;
+
+      // Si sale por abajo, renace por arriba
+      if (star.y > canvas.height + 5) {
+        Object.assign(star, createStar(false));
+      }
+
+      // Dibuja la estrella como círculo suave
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${CONFIG.color}, ${star.opacity})`;
+      ctx.fill();
+    });
+
+    animId = requestAnimationFrame(draw);
+  }
+
+  // Pausa la animación cuando el hero no está visible (ahorra recursos)
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      if (!animId) draw();
+    } else {
+      cancelAnimationFrame(animId);
+      animId = null;
+    }
+  });
+  observer.observe(canvas);
+
+  // Arranca
+  resize();
+  initStarField();
+  draw();
+
+  // Responsive
+  window.addEventListener("resize", () => {
+    resize();
+    initStarField();
+  });
+})();
+
+// ===========================
+//  SCROLL REVEAL 
+// ===========================
+(function initReveal() {
+
+  // Observador que detecta cuando un elemento entra en pantalla
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,   // aparece cuando el 12% del elemento es visible
+      rootMargin: "0px 0px -40px 0px"  // un poco antes del borde inferior
+    }
+  );
+
+  // Observamos todos los elementos con clase reveal
+  document.querySelectorAll(".reveal, .reveal-left, .reveal-right")
+    .forEach(el => observer.observe(el));
+
+  const originalCreate = window.createRepoCard;  // por si ya la tenés
+
+  // Sobreescribimos para agregar reveal automático a las cards
+  window.onCardsRendered = function() {
+    document.querySelectorAll(".project-card:not(.observed)").forEach((card, i) => {
+      card.classList.add("reveal");
+      card.style.transitionDelay = `${i * 0.08}s`;  // escalonado automático
+      card.classList.add("observed");
+      observer.observe(card);
+    });
+  };
+
+})();
