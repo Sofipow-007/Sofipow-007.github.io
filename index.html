@@ -7,12 +7,16 @@
     <title>Sofia Power — Portfolio Personal</title>
     <meta name="description" content="Portfolio de desarrollo — proyectos, skills y contacto." />
 
+    <!-- Favicon -->
+     <!-- <link rel="icon" href="" /> -->
+
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -25,9 +29,9 @@
     <header class="nav">
         <a class="nav-logo" href="https://github.com/Sofipow-007" target="_blank">Sofipow-007</a>
         <nav class="nav-links">
-            <a href="#proyectos">Proyectos</a>
-            <a href="#skills">Habilidades</a>
             <a href="#sobre-mi">Sobre Mi</a>
+            <a href="#skills">Habilidades</a>
+            <a href="#proyectos">Proyectos</a>            
             <a href="#contacto">Contacto</a>
         </nav>
         <button class="nav-toggle" aria-label="Menú">☰</button>
@@ -52,114 +56,13 @@
                     Ver GitHub ↗
                 </a>
                 <!-- Cambiá el href por tu CV o sacá este botón -->
-                <a href="cv.pdf" target="_blank" class="btn-ghost">Descargar CV</a>
+                <!-- <a href="cv.pdf" target="_blank" class="btn-ghost">Descargar CV</a> -->
             </div>
         </div>
 
         <!-- Elemento decorativo de fondo -->
         <div class="hero-deco" aria-hidden="true"></div>
     </section>
-
-
-    <!-- ======================================================
-       PROYECTOS
-  ====================================================== -->
-    <section class="section" id="proyectos">
-        <div class="section-header reveal">
-            <h2 class="section-title">Proyectos</h2>
-            <!-- El script.js va a reemplazar este número con el real -->
-            <span class="section-count" id="repo-count">—</span>
-        </div>
-
-        <!--
-      El script.js inyecta las cards acá.
-      Mientras carga, se muestra el estado de loading.
-    -->
-        <div class="reveal" id="projects-container">
-        </div>
-    </section>
-    <!-- MODAL DETALLE PROYECTO -->
-    <div id="project-modal" class="modal hidden">
-        <div class="modal-content">
-            <button class="modal-close" id="modal-close">✕</button>
-            
-            <h4 id="modal-tag"></h4>
-            <h3 id="modal-title"></h3>
-            <p id="modal-description"></p>
-            <div class="modal-tech-wrapper">
-                <p class="modal-tech-title">Tecnologías</p>
-                <div id="modal-tech" class="modal-tech"></div>
-            </div>
-
-            <div id="modal-images" class="modal-images"></div>
-
-            <div class="modal-links">
-                <a id="modal-github" target="_blank" class="btn-primary">Ver código</a>
-                <a id="modal-demo" target="_blank" class="btn-ghost">Ver demo</a>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- ======================================================
-       SKILLS
-  ====================================================== -->
-    <section class="section" id="skills">
-        <div class="section-header">
-            <h2 class="section-title">Stack</h2>
-        </div>
-
-        <div class="skills-grid">
-
-            <!-- Categoría 1 — cambiá los nombres y skills que quieras -->
-            <div class="skill-group reveal reveal-delay-1">
-                <p class="skill-group-label">Frontend</p>
-                <div class="skill-pills">
-                    <span class="skill-pill">HTML</span>
-                    <span class="skill-pill">CSS</span>
-                    <span class="skill-pill">JavaScript</span>
-                    <span class="skill-pill">React</span>
-                    <span class="skill-pill">Vite</span>
-                </div>
-            </div>
-
-            <!-- Categoría 2 -->
-            <div class="skill-group reveal reveal-delay-2">
-                <p class="skill-group-label">Backend</p>
-                <div class="skill-pills">
-                    <span class="skill-pill">Node.js</span>
-                    <span class="skill-pill">Python</span>
-                    <span class="skill-pill">Java</span>
-                    <span class="skill-pill">C++</span>
-                    <span class="skill-pill">Express.js</span>
-                    <span class="skill-pill">Sequelize - ORM</span>
-                </div>
-            </div>
-
-            <!-- Categoría 3 -->
-            <div class="skill-group reveal reveal-delay-3">
-                <p class="skill-group-label">Herramientas</p>
-                <div class="skill-pills">
-                    <span class="skill-pill">Git</span>
-                    <span class="skill-pill">Postman</span>
-                    <span class="skill-pill">Eclipse</span>
-                    <span class="skill-pill">VS Code</span>
-                    <span class="skill-pill">Arduino IDE</span>
-                </div>
-            </div>
-
-            <!-- Categoría 4 -->
-            <div class="skill-group reveal reveal-delay-4">
-                <p class="skill-group-label">Base de Datos</p>
-                <div class="skill-pills">
-                    <span class="skill-pill">SQL</span>
-                    <span class="skill-pill">MongoDB</span>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
 
     <!-- ======================
        SOBRE MÍ 
@@ -172,12 +75,111 @@
             <!-- El script puede completar esto con tu bio de GitHub,
            o simplemente escribís tu texto acá -->
             <p id="bio">
-                Soy una estudiante de la ET 36 "Almirante Guillermo Brown". Me dedico a programar mayormente en Full-Stack, implementando conocimientos en JavaScript, Python, Java, base de datos (relacionales o no relacionales), y comenzando a programar en C++. Tengo conocimientos en Frontend aunque no me especializo normalmente a su uso completo.
+                Soy una estudiante de la ET 36 "Almirante Guillermo Brown". Me dedico a programar mayormente en
+                Full-Stack, implementando conocimientos en JavaScript, Python, Java, base de datos (relacionales o no
+                relacionales), y comenzando a programar en C++. Tengo conocimientos en Frontend aunque no me especializo
+                normalmente a su uso completo.
             </p>
-            <img id="avatar" src="https://avatars.githubusercontent.com/u/224655589?v=4" alt="Foto de perfil" class="avatar" />
+            <img id="avatar" src="https://avatars.githubusercontent.com/u/224655589?v=4" alt="Foto de perfil"
+                class="avatar" />
         </div>
     </section>
 
+
+    <!-- ======================================================
+       SKILLS
+  ====================================================== -->
+    <section class="section" id="skills">
+        <div class="section-header">
+            <h2 class="section-title reveal">Habilidades</h2>
+        </div>
+
+        <div class="skills-grid">
+
+            <!-- Categoría 1 — cambiá los nombres y skills que quieras -->
+            <div class="skill-group reveal reveal-delay-1">
+                <p class="skill-group-label">Frontend</p>
+                <div class="skill-pills">
+                    <span class="skill-pill"> <i class="devicon-html5-plain colored"></i>HTML</span>
+                    <span class="skill-pill"> <i class="devicon-css3-plain colored"></i>CSS</span>
+                    <span class="skill-pill"> <i class="devicon-javascript-plain colored"></i>JavaScript</span>
+                    <span class="skill-pill"> <i class="devicon-react-plain colored"></i>React</span>
+                    <span class="skill-pill"> <i class="devicon-vitejs-plain colored"></i>Vite</span>
+                </div>
+            </div>
+
+            <!-- Categoría 2 -->
+            <div class="skill-group reveal reveal-delay-2">
+                <p class="skill-group-label">Backend</p>
+                <div class="skill-pills">
+                    <span class="skill-pill"> <i class="devicon-nodejs-plain colored"></i>Node.js</span>
+                    <span class="skill-pill"> <i class="devicon-python-plain colored"></i>Python</span>
+                    <span class="skill-pill"> <i class="devicon-java-plain colored"></i>Java</span>
+                    <span class="skill-pill"> <i class="devicon-cplusplus-plain colored"></i>C++</span>
+                    <span class="skill-pill"> <i class="devicon-express-plain colored"></i>Express.js</span>
+                    <span class="skill-pill"> <i class="devicon-sequelize-plain colored"></i>Sequelize - ORM</span>
+                </div>
+            </div>
+
+            <!-- Categoría 3 -->
+            <div class="skill-group reveal reveal-delay-3">
+                <p class="skill-group-label">Herramientas</p>
+                <div class="skill-pills">
+                    <span class="skill-pill"> <i class="devicon-git-plain colored"></i>Git</span>
+                    <span class="skill-pill"> <i class="devicon-postman-plain colored"></i>Postman</span>
+                    <span class="skill-pill"> <i class="devicon-eclipse-plain colored"></i>Eclipse</span>
+                    <span class="skill-pill"> <i class="devicon-vscode-plain colored"></i>VS Code</span>
+                    <span class="skill-pill"> <i class="devicon-arduino-plain colored"></i>Arduino IDE</span>
+                </div>
+            </div>
+
+            <!-- Categoría 4 -->
+            <div class="skill-group reveal reveal-delay-4">
+                <p class="skill-group-label">Base de Datos</p>
+                <div class="skill-pills">
+                    <span class="skill-pill"> <i class="devicon-sqlite-plain colored"></i>SQL</span>
+                    <span class="skill-pill"> <i class="devicon-mongodb-plain colored"></i>MongoDB</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================
+       PROYECTOS
+  ====================================================== -->
+    <section class="section" id="proyectos">
+        <div class="section-header reveal">
+            <h2 class="section-title">Proyectos</h2>
+        </div>
+
+        <!--
+      El script.js inyecta las cards acá
+    -->
+        <div class="reveal" id="projects-container">
+        </div>
+    </section>
+    <!-- MODAL DETALLE PROYECTO -->
+    <div id="project-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">✕</button>
+
+            <h4 id="modal-tag"></h4>
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+            <div class="modal-tech-wrapper">
+                <p class="modal-tech-title">Tecnologías</p>
+                <div id="modal-tech" class="modal-tech"></div>
+            </div>
+
+            <!-- <div id="modal-gallery" class="modal-gallery"></div> -->
+
+            <div class="modal-links">
+                <a id="modal-github" target="_blank" class="btn-primary">Ver código</a>
+                <a id="modal-demo" target="_blank" class="btn-ghost">Ver demo</a>
+            </div>
+        </div>
+    </div>
 
     <!-- ======================================================
        CONTACTO
@@ -190,12 +192,21 @@
             <p class="contact-sub">
                 ¿Tenés un proyecto en mente o querés charlar? Escribime.
             </p>
-            <div class="contact-links">
-                <!-- Reemplazá con tus datos reales -->
-                <a class="contact-link">power.sofiaet36@gmail.com ↗</a>
-                <a href="https://www.linkedin.com/in/sofia-power-73b3483b7/" target="_blank" class="contact-link">LinkedIn ↗</a>
-                <a href="https://github.com/Sofipow-007" target="_blank" class="contact-link">GitHub ↗</a>
-            </div>
+            <form action="/enviar-correo" method="post" class="contact-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" placeholder="Nombre" class="contact-input" id="contact-name">
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" placeholder="tu@email.com" class="contact-input" id="contact-email">
+                <br>
+                <label for="message">Mensaje:</label>
+                <input type="text" placeholder="Escribe tu mensaje aquí" class="contact-input" id="contact-message">
+                
+                <button type="submit" class="btn-primary">Enviar mensaje</button>
+                <!-- <a href="https://www.linkedin.com/in/sofia-power-73b3483b7/" target="_blank"
+                    class="contact-link">LinkedIn ↗</a>
+                <a href="https://github.com/Sofipow-007" target="_blank" class="contact-link">GitHub ↗</a> -->
+            </form>
         </div>
     </section>
 
@@ -204,12 +215,9 @@
        FOOTER
   ====================================================== -->
     <footer class="footer">
-        <!-- <span class="footer-txt">
-            Hecho con HTML, CSS y JS — hosteado en GitHub Pages
-        </span> -->
-        <span class="footer-txt muted">
+        <!-- <span class="footer-txt muted">
             © <span id="year"></span> Sofi
-        </span>
+        </span> -->
     </footer>
 
 

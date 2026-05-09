@@ -1,6 +1,6 @@
-// ============================================================
-// PROYECTOS PERSONALIZADOS (EDITÁS TODO ACÁ)
-// ============================================================
+// =======================================
+// PROYECTOS PERSONALIZADOS
+// =======================================
 const PROJECTS = [
   {
     title: "PIXIE",
@@ -40,7 +40,9 @@ const PROJECTS = [
     github: "https://github.com/Sofipow-007/Escaner-de-Red",
     demo: "",
     estado: "Finalizado",
-    images: []
+    images: [
+      "assets/images/escanerRed/escanerRed-image1.png"
+    ]
   },
 ];
 
@@ -70,64 +72,52 @@ function renderProjects() {
         <h3 class="project-title">${project.title}</h3>
         <p class="project-desc">${project.shortDesc}</p>
       `;
+        // <img src="${project.images && project.images[0] ? project.images[0] : "assets/images/placeholder.png"}" alt="${project.title}" class="project-image" loading="lazy">
+      
 
     card.addEventListener("click", () => openModal(project));
 
     container.appendChild(card);
   });
 
-  document.getElementById("repo-count").textContent = PROJECTS.length;
+  const repoCount = document.getElementById("repo-count");
+if (repoCount) repoCount.textContent = PROJECTS.length;
 }
 
 
 // ============================================================
 // MODAL
 // ============================================================
-function setupModal() {
-  const modal = document.getElementById("project-modal");
-  const closeBtn = document.getElementById("modal-close");
-
-  closeBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.add("hidden");
-    }
-  });
-}
 
 function openModal(project) {
   const modal = document.getElementById("project-modal");
 
-  document.getElementById("modal-tag").textContent = project.estado
   document.getElementById("modal-title").textContent = project.title;
   document.getElementById("modal-description").textContent = project.fullDesc;
+
+  // — Tecnologías —
   const techContainer = document.getElementById("modal-tech");
-
   techContainer.innerHTML = "";
-
   project.tech.forEach(tech => {
     const pill = document.createElement("span");
-
     pill.className = "modal-tech-pill";
     pill.textContent = tech;
-
     techContainer.appendChild(pill);
   });
 
-  const imagesContainer = document.getElementById("modal-images");
-  imagesContainer.innerHTML = "";
+  // — Galería con carrusel —
+  // const gallery = document.getElementById("modal-gallery");
+  // gallery.innerHTML = "";
 
-  project.images.forEach(src => {
-    const img = document.createElement("img");
-    img.src = src;
-    imagesContainer.appendChild(img);
-  });
+  // if (project.images && project.images.length > 0) {
+  //   gallery.style.display = "block";
+  //   renderGallery(gallery, project.images);
+  // } else {
+  //   gallery.style.display = "none";
+  // }
 
+  // — Links —
   document.getElementById("modal-github").href = project.github;
-
   const demoBtn = document.getElementById("modal-demo");
   if (project.demo) {
     demoBtn.href = project.demo;
@@ -137,6 +127,77 @@ function openModal(project) {
   }
 
   modal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+}
+
+// — Cerrá el modal también restaurando el scroll —
+function setupModal() {
+  const modal = document.getElementById("project-modal");
+  const closeBtn = document.getElementById("modal-close");
+
+  function closeModal() {
+    modal.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+
+  closeBtn.addEventListener("click", closeModal);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+}
+
+// — Carrusel —
+function renderGallery(container, images) {
+  let current = 0;
+
+  container.innerHTML = `
+    <p class="modal-gallery-title">Capturas</p>
+    <div class="gallery">
+      <button class="gallery-btn gallery-prev" aria-label="Anterior">&#8249;</button>
+      <div class="gallery-track-wrapper">
+        <div class="gallery-track">
+          ${images.map((src, i) => `
+            <img
+              src="${src}"
+              alt="Captura ${i + 1}"
+              class="gallery-img ${i === 0 ? "active" : ""}"
+              loading="lazy"
+            />
+          `).join("")}
+        </div>
+      </div>
+      <button class="gallery-btn gallery-next" aria-label="Siguiente">&#8250;</button>
+    </div>
+    ${images.length > 1 ? `
+    <div class="gallery-dots">
+      ${images.map((_, i) => `
+        <button class="gallery-dot ${i === 0 ? "active" : ""}" data-index="${i}" aria-label="Ir a imagen ${i + 1}"></button>
+      `).join("")}
+    </div>` : ""}
+  `;
+
+  if (images.length === 1) {
+    container.querySelector(".gallery-prev").style.display = "none";
+    container.querySelector(".gallery-next").style.display = "none";
+  }
+
+  const imgs = container.querySelectorAll(".gallery-img");
+  const dots = container.querySelectorAll(".gallery-dot");
+
+  function goTo(index) {
+    imgs[current].classList.remove("active");
+    if (dots[current]) dots[current].classList.remove("active");
+    current = (index + images.length) % images.length;
+    imgs[current].classList.add("active");
+    if (dots[current]) dots[current].classList.add("active");
+  }
+
+  container.querySelector(".gallery-prev").addEventListener("click", () => goTo(current - 1));
+  container.querySelector(".gallery-next").addEventListener("click", () => goTo(current + 1));
+  dots.forEach(dot => dot.addEventListener("click", () => goTo(+dot.dataset.index)));
 }
 
 // ============================================================
