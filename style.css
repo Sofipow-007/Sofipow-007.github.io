@@ -159,9 +159,23 @@ footer {
 }
 
 .hero-inner {
-    max-width: 760px;
-    position: relative;
-    z-index: 2;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1120px;
+}
+
+.hero-content { 
+    flex: 1;
+    max-width: 600px;
+}
+
+.computer-gif {
+    width: 320px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+    margin-right: 40px;
 }
 
 .hero-tag {
