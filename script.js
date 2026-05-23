@@ -201,7 +201,7 @@ function renderGallery(container, images) {
 }
 
 // ============================================================
-//  ANIMACIÓN DE ESTRELLAS — Hero del HTML
+//  ANIMACIÓN DE ESTRELLAS — Fondo general de la página
 // ============================================================
 (function initStars() {
   const canvas = document.getElementById("stars-canvas");
@@ -222,10 +222,10 @@ function renderGallery(container, images) {
   let stars = [];
   let animId;
 
-  // Redimensiona el canvas al tamaño del hero
+  // Redimensiona el canvas al tamaño del viewport
   function resize() {
-    canvas.width  = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
   }
 
   // Crea una estrella con valores aleatorios

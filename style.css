@@ -39,6 +39,7 @@ html {
 
 body {
     font-family: "Outfit", sans-serif;
+    position: relative;
     background:
         radial-gradient(circle at top, rgba(155, 123, 255, 0.16), transparent 30%),
         radial-gradient(circle at 80% 20%, rgba(124, 92, 255, 0.12), transparent 25%),
@@ -47,6 +48,15 @@ body {
     line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
+}
+
+#stars-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
 }
 
 img {
@@ -154,29 +164,105 @@ footer {
     min-height: 78vh;
     display: grid;
     align-items: center;
-    padding: 90px 0 60px;
+    padding: 90px 24px 60px;
     overflow: hidden;
+    background: linear-gradient(180deg, rgba(14, 10, 24, 0.92) 0%, rgba(20, 14, 39, 0.88) 100%);
+    border: 1px solid rgba(155, 123, 255, 0.18);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.34);
+    border-radius: 40px;
+    backdrop-filter: blur(18px);
+    z-index: 1;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 25% 20%, rgba(155, 123, 255, 0.14), transparent 24%),
+        radial-gradient(circle at 85% 35%, rgba(124, 92, 255, 0.10), transparent 18%);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.16), transparent 18%),
+                radial-gradient(circle at 80% 30%, rgba(155, 123, 255, 0.12), transparent 16%);
+    opacity: 0.24;
+    transform: translateX(-20%) scale(1.03);
+    animation: heroGlow 16s ease-in-out infinite;
 }
 
 .hero-inner {
+    position: relative;
+    z-index: 1;
     display: flex;
     gap: 40px;
     align-items: center;
     justify-content: space-between;
     max-width: 1120px;
+    animation: heroFloat 18s ease-in-out infinite alternate;
 }
 
-.hero-content { 
+@keyframes heroGlow {
+    0%, 100% {
+        opacity: 0.24;
+        transform: translateX(-20%) scale(1.03);
+    }
+    50% {
+        opacity: 0.32;
+        transform: translateX(20%) scale(1.04);
+    }
+}
+
+@keyframes heroFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.hero-content {
     flex: 1;
     max-width: 600px;
+    animation: contentFade 1.2s ease-out both;
 }
 
 .computer-gif {
-    width: 320px;
+    width: 400px;
     flex-shrink: 0;
     margin-bottom: 0;
     margin-right: 40px;
+    animation: imageRise 1.3s ease-out both
 }
+
+@keyframes contentFade {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes imageRise {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 
 .hero-tag {
     display: inline-flex;
@@ -338,6 +424,7 @@ footer {
 .project-title {
     font-size: 1.2rem;
     font-weight: 500;
+    font-family: "DM Serif Display", serif;
 }
 
 .project-desc {
@@ -406,6 +493,19 @@ footer {
     color: var(--primary);
     background: var(--primary-soft);
     border: 1px solid rgba(155, 123, 100, 0.24);
+}
+
+#modal-title {
+    font-family: "DM Serif Display", serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.3px;
+    color: var(--text);
+}
+
+#modal-description {
+    color: var(--text-soft);
+    font-size: 1rem;
+    margin-bottom: 18px;
 }
 
 .modal-tech-wrapper {
@@ -702,22 +802,8 @@ footer {
     color: var(--muted);
 }
 
-/* ============ STARS CANVAS ============ */
-#stars-canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* ============ SCROLL REVEAL ============ */
-
-/* Estado inicial */
 .reveal {
     opacity: 0;
-    transform: translateY(28px);
     transition: opacity 0.65s ease, transform 0.65s ease;
 }
 
