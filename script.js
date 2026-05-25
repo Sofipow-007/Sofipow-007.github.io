@@ -3,9 +3,12 @@
 // =======================================
 const PROJECTS = [
   {
-    title: "PIXIE",
-    shortDesc: "Asistente de escritorio en ESP32",
-    fullDesc: "Reloj de escritorio inteligente realizado en ESP32 con pantalla OLED que centraliza información y controles que están disponibles en el celular u otras apps. Tiene una cara animada en 'Stand By', muestra reloj, fecha y clima en tiempo real y cronómetro configurable.",
+    title: { es: "PIXIE", en: "PIXIE" },
+    shortDesc: { es: "Asistente de escritorio en ESP32", en: "ESP32 desktop assistant" },
+    fullDesc: {
+      es: "Reloj de escritorio inteligente realizado en ESP32 con pantalla OLED que centraliza información y controles que están disponibles en el celular u otras apps. Tiene una cara animada en 'Stand By', muestra reloj, fecha y clima en tiempo real y cronómetro configurable.",
+      en: "Smart desktop clock built on ESP32 with an OLED screen that centralizes information and controls available on mobile apps. Shows an animated face in standby, time, date, real-time weather and a configurable stopwatch."
+    },
     tech: ["Arduino", "C++"],
     github: "https://github.com/Sofipow-007/PIXIE.git",
     demo: "",
@@ -13,9 +16,12 @@ const PROJECTS = [
     images: []
   },
   {
-    title: "FitPocket",
-    shortDesc: "Aplicación Personal de Fitness",
-    fullDesc: "Sistema Full-Stack completo de planes de entrenamiento y dietas creados por la IA, que se organiza con checkins diarios automatizados. Incluye un cálculo de ICM promedio, onboarding para que cada usuario ingrese sus datos personales, y más funcionalidades.",
+    title: { es: "FitPocket", en: "FitPocket" },
+    shortDesc: { es: "Aplicación Personal de Fitness", en: "Personal Fitness App" },
+    fullDesc: {
+      es: "Sistema Full-Stack completo de planes de entrenamiento y dietas creados por la IA, que se organiza con checkins diarios automatizados. Incluye un cálculo de ICM promedio, onboarding para que cada usuario ingrese sus datos personales, y más funcionalidades.",
+      en: "Full-Stack system for training plans and AI-generated diet plans, organized with automated daily check-ins. Includes caloric calculations, user onboarding, and more features."
+    },
     tech: ["Node.js", "N8N", "MongoDB", "React"],
     github: "https://github.com/Sofipow-007/FitPocket",
     demo: "",
@@ -23,9 +29,12 @@ const PROJECTS = [
     images: []
   },
   {
-    title: "NextRead",
-    shortDesc: "Sistema de recomendaciones y calificaciones de libros",
-    fullDesc: "Aplicación Full-Stack en React que consume API, maneja estados y muestra libros por género, década y preferencias.",
+    title: { es: "NextRead", en: "NextRead" },
+    shortDesc: { es: "Sistema de recomendaciones y calificaciones de libros", en: "Book recommendation and rating system" },
+    fullDesc: {
+      es: "Aplicación Full-Stack en React que consume API, maneja estados y muestra libros por género, década y preferencias.",
+      en: "Full-Stack React application that consumes an API, manages state and displays books by genre, decade and user preferences."
+    },
     tech: ["Node.js", "MySQL", "JavaScript", "React", "Vite", "CSS"],
     github: "https://github.com/AlejoGuerraa/nextRead",
     demo: "",
@@ -33,9 +42,12 @@ const PROJECTS = [
     images: []
   },
   {
-    title: "Escaner de Red",
-    shortDesc: "Herramienta interactiva de red",
-    fullDesc: "Aplicación que se encarga de mandar paquetes en un rango de IPs válidos o a una dirección DNS existente, y que contiene algunas estadísticas realizadas con el comando netstat (protocolos de red, conexiones y routers activos). Contiene una interfaz amigable para el usuario.",
+    title: { es: "Escaner de Red", en: "Network Scanner" },
+    shortDesc: { es: "Herramienta interactiva de red", en: "Interactive network tool" },
+    fullDesc: {
+      es: "Aplicación que se encarga de mandar paquetes en un rango de IPs válidos o a una dirección DNS existente, y que contiene algunas estadísticas realizadas con el comando netstat (protocolos de red, conexiones y routers activos). Contiene una interfaz amigable para el usuario.",
+      en: "An application that sends packets across valid IP ranges or to a DNS address and gathers statistics with netstat (protocols, connections, active routers). Includes a user-friendly interface."
+    },
     tech: ["Java", "Git"],
     github: "https://github.com/Sofipow-007/Escaner-de-Red",
     demo: "",
@@ -46,11 +58,85 @@ const PROJECTS = [
   },
 ];
 
+// Traducciones para la UI
+const TRANSLATIONS = {
+  es: {
+    "nav.about": "Sobre Mí",
+    "nav.skills": "Habilidades",
+    "nav.projects": "Proyectos",
+    "nav.contact": "Contacto",
+    "hero.available": "Disponible para trabajar",
+    "hero.sub": "Estudiante de escuela Técnica, desarrolladora especializada en BackEnd y Bases de Datos.",
+    "hero.github": "Ver GitHub ↗",
+    "about.title": "Sobre Mí",
+    "about.bio": "Soy una estudiante de la Escuela Técnica N°36 \"Almirante Guillermo Brown\". Me dedico a programar mayormente en Full-Stack, implementando conocimientos en JavaScript, Python, Java, base de datos (relacionales o no relacionales), sistemas embebidos, y comenzando a programar en C++. Tengo conocimientos en Frontend aunque no me especializo normalmente a su uso completo.",
+    "about.bio2": "Logré participar en proyectos grupales e individuales, utilizando herramientas como GitHub para el control de versiones y Postman para probar APIs. Me gusta aprender nuevas tecnologías y enfrentar desafíos de programación, siempre buscando mejorar mis habilidades y contribuir a proyectos interesantes.",
+    "about.avatarAlt": "Foto de perfil",
+    "skills.title": "Habilidades",
+    "skills.frontend": "Frontend",
+    "skills.backend": "Backend",
+    "skills.tools": "Herramientas",
+    "skills.dbs": "Base de Datos",
+    "projects.title": "Proyectos",
+    "modal.techTitle": "Tecnologías",
+    "modal.github": "Ver código",
+    "modal.demo": "Ver demo",
+    "contact.title": "Contacto",
+    "contact.sub": "¿Tenés un proyecto en mente o querés charlar? Escribime.",
+    "contact.nameLabel": "Nombre:",
+    "contact.namePlaceholder": "Nombre",
+    "contact.emailLabel": "Email:",
+    "contact.emailPlaceholder": "tu@email.com",
+    "contact.messageLabel": "Mensaje:",
+    "contact.messagePlaceholder": "Escribe tu mensaje aquí",
+    "contact.send": "Enviar mensaje"
+  },
+  en: {
+    "nav.about": "About",
+    "nav.skills": "Skills",
+    "nav.projects": "Projects",
+    "nav.contact": "Contact",
+    "hero.available": "Available for work",
+    "hero.sub": "Technical school student, developer specialized in Backend and Databases.",
+    "hero.github": "View GitHub ↗",
+    "about.title": "About Me",
+    "about.bio": "I'm a student at the Technical School N°36 'Almirante Guillermo Brown'. I mostly work Full-Stack implementing knowledge in JavaScript, Python, Java, databases (relational and non-relational), systems embedded, and I'm starting with C++. I have Frontend knowledge though it's not my main specialty.",
+    "about.bio2": "I've participated in group and individual projects, using tools like GitHub for version control and Postman for API testing. I enjoy learning new technologies and facing programming challenges, always aiming to improve my skills and contribute to interesting projects.",
+    "about.avatarAlt": "Profile photo",
+    "skills.title": "Skills",
+    "skills.frontend": "Frontend",
+    "skills.backend": "Backend",
+    "skills.tools": "Tools",
+    "skills.dbs": "Databases",
+    "projects.title": "Projects",
+    "modal.techTitle": "Technologies",
+    "modal.github": "View code",
+    "modal.demo": "View demo",
+    "contact.title": "Contact",
+    "contact.sub": "Have a project in mind or want to chat? Write me.",
+    "contact.nameLabel": "Name:",
+    "contact.namePlaceholder": "Name",
+    "contact.emailLabel": "Email:",
+    "contact.emailPlaceholder": "your@email.com",
+    "contact.messageLabel": "Message:",
+    "contact.messagePlaceholder": "Write your message here",
+    "contact.send": "Send message"
+  }
+};
+
+let currentLang = localStorage.getItem('lang') || 'es';
+
 
 // ============================================================
 // INIT
 // ============================================================
 document.addEventListener("DOMContentLoaded", () => {
+  // Inicializar selector y traducciones
+  const langSelect = document.querySelector('.language-select');
+  if (langSelect) langSelect.value = currentLang;
+  applyTranslations(currentLang);
+  initLanguageSwitcher();
+
   renderProjects();
   setupModal();
 });
@@ -69,8 +155,8 @@ function renderProjects() {
 
     card.innerHTML = `
         <h4 class="modal-tag">${project.estado}</h4>
-        <h3 class="project-title">${project.title}</h3>
-        <p class="project-desc">${project.shortDesc}</p>
+        <h3 class="project-title">${(project.title && project.title[currentLang]) || project.title}</h3>
+        <p class="project-desc">${(project.shortDesc && project.shortDesc[currentLang]) || project.shortDesc}</p>
       `;
         // <img src="${project.images && project.images[0] ? project.images[0] : "assets/images/placeholder.png"}" alt="${project.title}" class="project-image" loading="lazy">
       
@@ -82,6 +168,9 @@ function renderProjects() {
 
   const repoCount = document.getElementById("repo-count");
 if (repoCount) repoCount.textContent = PROJECTS.length;
+
+  // aplicar reveal a las cards renderizadas
+  if (window.onCardsRendered) window.onCardsRendered();
 }
 
 
@@ -92,8 +181,8 @@ if (repoCount) repoCount.textContent = PROJECTS.length;
 function openModal(project) {
   const modal = document.getElementById("project-modal");
 
-  document.getElementById("modal-title").textContent = project.title;
-  document.getElementById("modal-description").textContent = project.fullDesc;
+  document.getElementById("modal-title").textContent = (project.title && project.title[currentLang]) || project.title;
+  document.getElementById("modal-description").textContent = (project.fullDesc && project.fullDesc[currentLang]) || project.fullDesc;
 
   // — Tecnologías —
   const techContainer = document.getElementById("modal-tech");
@@ -128,6 +217,69 @@ function openModal(project) {
 
   modal.classList.remove("hidden");
   document.body.style.overflow = "hidden";
+}
+
+
+// ============================================================
+//  FUNCIONES DE I18N
+// ============================================================
+function applyTranslations(lang) {
+  const map = TRANSLATIONS[lang] || {};
+
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (!key) return;
+    const text = map[key] || TRANSLATIONS['es'][key] || key;
+    // preserva iconos/arrows si estaban en el HTML original para algunos botones
+    if (el.classList.contains('btn-primary') || el.classList.contains('btn-ghost')) {
+      el.innerHTML = text;
+    } else {
+      el.textContent = text;
+    }
+  });
+
+  // placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (!key) return;
+    const text = map[key] || TRANSLATIONS['es'][key] || key;
+    el.placeholder = text;
+  });
+
+  // alt attributes
+  document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+    const key = el.getAttribute('data-i18n-alt');
+    if (!key) return;
+    const text = map[key] || TRANSLATIONS['es'][key] || key;
+    el.alt = text;
+  });
+
+  // aria labels
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    const key = el.getAttribute('data-i18n-aria');
+    if (!key) return;
+    const text = map[key] || TRANSLATIONS['es'][key] || key;
+    el.setAttribute('aria-label', text);
+  });
+
+  // re-render projects so project texts reflect language
+  // (keeps modal and cards in sync)
+  const projectsContainer = document.getElementById('projects-container');
+  if (projectsContainer && projectsContainer.children.length > 0) {
+    renderProjects();
+  }
+}
+
+function initLanguageSwitcher() {
+  const select = document.querySelector('.language-select');
+  if (!select) return;
+  select.addEventListener('change', (e) => {
+    currentLang = e.target.value || 'es';
+    localStorage.setItem('lang', currentLang);
+    applyTranslations(currentLang);
+  });
 }
 
 // — Cerrá el modal también restaurando el scroll —
