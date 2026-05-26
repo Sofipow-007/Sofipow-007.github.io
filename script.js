@@ -9,7 +9,7 @@ const PROJECTS = [
       es: "Reloj de escritorio inteligente realizado en ESP32 con pantalla OLED que centraliza información y controles que están disponibles en el celular u otras apps. Tiene una cara animada en 'Stand By', muestra reloj, fecha y clima en tiempo real y cronómetro configurable.",
       en: "Smart desktop clock built on ESP32 with an OLED screen that centralizes information and controls available on mobile apps. Shows an animated face in standby, time, date, real-time weather and a configurable stopwatch."
     },
-    tech: ["Arduino", "C++"],
+    tech: ["Arduino", "C++", "React", "JavaScript", "Figma"],
     github: "https://github.com/Sofipow-007/PIXIE.git",
     demo: "",
     estado: "En Proceso",
@@ -87,7 +87,7 @@ const PROJECTS = [
     ]
   },
   {
-    title: { es: "Escaner de Red", en: "Network Scanner" },
+    title: { es: "NetView", en: "NetView" },
     shortDesc: { es: "Herramienta interactiva de red", en: "Interactive network tool" },
     fullDesc: {
       es: "Aplicación que se encarga de mandar paquetes en un rango de IPs válidos o a una dirección DNS existente, y que contiene algunas estadísticas realizadas con el comando netstat (protocolos de red, conexiones y routers activos). Contiene una interfaz amigable para el usuario.",
@@ -98,7 +98,10 @@ const PROJECTS = [
     demo: "",
     estado: "Finalizado",
     images: [
-      "assets/images/escanerRed/escanerRed-image1.png"
+      "assets/images/netview/NetView-logo.png",
+      "assets/images/netview/escanerRed-image1.png",
+      "assets/images/netview/netview-ips.png",
+      "assets/images/netview/netview-conexiones.png"
     ]
   },
 ];
@@ -112,7 +115,7 @@ const TRANSLATIONS = {
     "nav.contact": "Contacto",
     "hero.available": "Disponible para trabajar",
     "hero.sub": "Estudiante de escuela Técnica, desarrolladora especializada en BackEnd y Bases de Datos.",
-    "hero.github": "Ver GitHub ↗",
+    "hero.github": "Ver GitHub",
     "about.title": "Sobre Mí",
     "about.bio": "Soy una estudiante de la Escuela Técnica N°36 \"Almirante Guillermo Brown\". Me dedico a programar mayormente en Full-Stack, implementando conocimientos en JavaScript, Python, Java, base de datos (relacionales o no relacionales), sistemas embebidos, y comenzando a programar en C++. Tengo conocimientos en Frontend aunque no me especializo normalmente a su uso completo.",
     "about.bio2": "Logré participar en proyectos grupales e individuales, utilizando herramientas como GitHub para el control de versiones y Postman para probar APIs. Me gusta aprender nuevas tecnologías y enfrentar desafíos de programación, siempre buscando mejorar mis habilidades y contribuir a proyectos interesantes.",
@@ -143,7 +146,7 @@ const TRANSLATIONS = {
     "nav.contact": "Contact",
     "hero.available": "Available for work",
     "hero.sub": "Technical school student, developer specialized in Backend and Databases.",
-    "hero.github": "View GitHub ↗",
+    "hero.github": "View GitHub",
     "about.title": "About Me",
     "about.bio": "I'm a student at the Technical School N°36 'Almirante Guillermo Brown'. I mostly work Full-Stack implementing knowledge in JavaScript, Python, Java, databases (relational and non-relational), systems embedded, and I'm starting with C++. I have Frontend knowledge though it's not my main specialty.",
     "about.bio2": "I've participated in group and individual projects, using tools like GitHub for version control and Postman for API testing. I enjoy learning new technologies and facing programming challenges, always aiming to improve my skills and contribute to interesting projects.",
