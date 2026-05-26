@@ -13,20 +13,58 @@ const PROJECTS = [
     github: "https://github.com/Sofipow-007/PIXIE.git",
     demo: "",
     estado: "En Proceso",
-    images: []
+    images: [],
+    participants: [
+      {
+        name: "Sofía Power",
+        github: ""
+      },
+      {
+        name: "Lautaro Palombo",
+        github: ""
+      },
+      {
+        name: "Mauro Beltrán",
+        github: ""
+      },
+      {
+        name: "Thomas Barrera Fuentes",
+        github: ""
+      }
+    ]
   },
   {
     title: { es: "FitPocket", en: "FitPocket" },
     shortDesc: { es: "Aplicación Personal de Fitness", en: "Personal Fitness App" },
     fullDesc: {
-      es: "Sistema Full-Stack completo de planes de entrenamiento y dietas creados por la IA, que se organiza con checkins diarios automatizados. Incluye un cálculo de ICM promedio, onboarding para que cada usuario ingrese sus datos personales, y más funcionalidades.",
-      en: "Full-Stack system for training plans and AI-generated diet plans, organized with automated daily check-ins. Includes caloric calculations, user onboarding, and more features."
+      es: "Sistema Full-Stack completo de planes de entrenamiento y dietas creados por la IA, que se organiza con checkins diarios automatizados. Incluye un cálculo de ICM promedio, onboarding para que cada usuario ingrese sus datos personales, y más funcionalidades. Por ahora el proyecto se encuentra en desarrollo.",
+      en: "Full-Stack system for training plans and AI-generated diet plans, organized with automated daily check-ins. Includes caloric calculations, user onboarding, and more features. The project is currently in development."
     },
     tech: ["Node.js", "N8N", "MongoDB", "React"],
     github: "https://github.com/Sofipow-007/FitPocket",
     demo: "",
     estado: "En Proceso",
-    images: []
+    images: [
+      "assets/images/fitpocket/fitpocket-logo(with text&inverted)-blackbg.png",
+    ],
+    participants: [
+      {
+        name: "Sofía Power",
+        github: ""
+      },
+      {
+        name: "Lautaro Palombo",
+        github: ""
+      },
+      {
+        name: "Mauro Beltrán",
+        github: ""
+      },
+      {
+        name: "Thomas Barrera Fuentes",
+        github: ""
+      }
+    ]
   },
   {
     title: { es: "NextRead", en: "NextRead" },
@@ -39,7 +77,9 @@ const PROJECTS = [
     github: "https://github.com/AlejoGuerraa/nextRead",
     demo: "",
     estado: "Finalizado",
-    images: []
+    images: [
+      "assets/images/nextread/icon-nextread.png",
+    ]
   },
   {
     title: { es: "Escaner de Red", en: "Network Scanner" },
@@ -157,9 +197,19 @@ function renderProjects() {
         <h4 class="modal-tag">${project.estado}</h4>
         <h3 class="project-title">${(project.title && project.title[currentLang]) || project.title}</h3>
         <p class="project-desc">${(project.shortDesc && project.shortDesc[currentLang]) || project.shortDesc}</p>
+        
       `;
-        // <img src="${project.images && project.images[0] ? project.images[0] : "assets/images/placeholder.png"}" alt="${project.title}" class="project-image" loading="lazy">
-      
+
+    // Añadimos la miniatura sólo si existe una imagen
+    if (project.images && project.images[0]) {
+      const img = document.createElement('img');
+      img.src = project.images[0];
+      img.alt = (project.title && project.title[currentLang]) || project.title;
+      img.className = 'project-image';
+      img.loading = 'lazy';
+      card.appendChild(img);
+      card.classList.add('with-thumb');
+    }
 
     card.addEventListener("click", () => openModal(project));
 
@@ -195,14 +245,31 @@ function openModal(project) {
   });
 
   // — Galería con carrusel —
-  // const gallery = document.getElementById("modal-gallery");
-  // gallery.innerHTML = "";
+  const gallery = document.getElementById("modal-gallery");
+  if (gallery) {
+    gallery.innerHTML = "";
 
-  // if (project.images && project.images.length > 0) {
-  //   gallery.style.display = "block";
-  //   renderGallery(gallery, project.images);
-  // } else {
-  //   gallery.style.display = "none";
+    if (project.images && project.images.length > 0) {
+      gallery.style.display = "block";
+      renderGallery(gallery, project.images);
+    } else {
+      gallery.style.display = "none";
+    }
+  }
+  
+  // const participantsContainer = document.getElementById("modal-participants");
+  // if (participantsContainer) {
+  //   participantsContainer.innerHTML = "";
+  //   project.participants.forEach(participant => {
+  //     const participantEl = document.createElement("div");
+  //     participantEl.className = "modal-participant";
+  //     participantEl.innerHTML = `
+      
+  //     <button><a href="${participant.github}" target="_blank" rel="noopener noreferrer"> ${participant.name} </a></button>
+
+  //     `;
+  //     participantsContainer.appendChild(participantEl);
+  //   });
   // }
 
   // — Links —
