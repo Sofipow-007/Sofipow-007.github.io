@@ -40,7 +40,7 @@ const PROJECTS = [
       es: "Sistema Full-Stack completo de planes de entrenamiento y dietas creados por la IA, que se organiza con checkins diarios automatizados. Incluye un cálculo de ICM promedio, onboarding para que cada usuario ingrese sus datos personales, y más funcionalidades. Por ahora el proyecto se encuentra en desarrollo.",
       en: "Full-Stack system for training plans and AI-generated diet plans, organized with automated daily check-ins. Includes caloric calculations, user onboarding, and more features. The project is currently in development."
     },
-    tech: ["Node.js", "N8N", "MongoDB", "React"],
+    tech: ["Node.js", "N8N", "MongoDB", "React", "bcrypt", "JWT", "Git", "Figma"],
     github: "https://github.com/Sofipow-007/FitPocket",
     demo: "",
     estado: "En Proceso",
@@ -73,12 +73,17 @@ const PROJECTS = [
       es: "Aplicación Full-Stack en React que consume API, maneja estados y muestra libros por género, década y preferencias.",
       en: "Full-Stack React application that consumes an API, manages state and displays books by genre, decade and user preferences."
     },
-    tech: ["Node.js", "MySQL", "JavaScript", "React", "Vite", "CSS"],
+    tech: ["Node.js", "MySQL", "JavaScript", "React", "Vite", "CSS", "bcrypt", "JWT", "Git", "Figma", "Express.js", "Sequelize"],
     github: "https://github.com/AlejoGuerraa/nextRead",
     demo: "",
     estado: "Finalizado",
     images: [
       "assets/images/nextread/icon-nextread.png",
+      "assets/images/nextread/nextread-nosotros.png",
+      "assets/images/nextread/nextread-invitado.png",
+      "assets/images/nextread/nextread-register1.png",
+      "assets/images/nextread/nextread-register2.png",
+      "assets/images/nextread/nextread-login.png",
     ]
   },
   {
@@ -249,10 +254,15 @@ function openModal(project) {
   if (gallery) {
     gallery.innerHTML = "";
 
-    if (project.images && project.images.length > 0) {
+    // Separamos la portada (imagen 0) del resto de las imágenes que irán a la galería
+    const cover = (project.images && project.images.length) ? project.images[0] : null;
+    const galleryImages = (project.images && project.images.length > 1) ? project.images.slice(1) : [];
+
+    if (galleryImages.length > 0) {
       gallery.style.display = "block";
-      renderGallery(gallery, project.images);
+      renderGallery(gallery, galleryImages);
     } else {
+      // no hay imágenes para la galería (quizá sólo exista la portada o ninguna)
       gallery.style.display = "none";
     }
   }
@@ -373,7 +383,7 @@ function renderGallery(container, images) {
   let current = 0;
 
   container.innerHTML = `
-    <p class="modal-gallery-title">Capturas</p>
+    <p class="modal-gallery-title">Imágenes del proyecto</p>
     <div class="gallery">
       <button class="gallery-btn gallery-prev" aria-label="Anterior">&#8249;</button>
       <div class="gallery-track-wrapper">
