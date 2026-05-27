@@ -16,20 +16,20 @@ const PROJECTS = [
     images: [],
     participants: [
       {
-        name: "Sofía Power",
-        github: ""
+        name: "Thomas Barrera Fuentes",
+        github: "https://github.com/partengo"
+      },
+      {
+        name: "Mauro Beltran",
+        github: "https://github.com/MBJoel07"
       },
       {
         name: "Lautaro Palombo",
-        github: ""
+        github: "https://github.com/Lautaro-06"
       },
       {
-        name: "Mauro Beltrán",
-        github: ""
-      },
-      {
-        name: "Thomas Barrera Fuentes",
-        github: ""
+        name: "Sofia Power",
+        github: "https://github.com/Sofipow-007"
       }
     ]
   },
@@ -49,20 +49,20 @@ const PROJECTS = [
     ],
     participants: [
       {
-        name: "Sofía Power",
-        github: ""
+        name: "Thomas Barrera Fuentes",
+        github: "https://github.com/partengo"
+      },
+      {
+        name: "Mauro Beltran",
+        github: "https://github.com/MBJoel07"
       },
       {
         name: "Lautaro Palombo",
-        github: ""
+        github: "https://github.com/Lautaro-06"
       },
       {
-        name: "Mauro Beltrán",
-        github: ""
-      },
-      {
-        name: "Thomas Barrera Fuentes",
-        github: ""
+        name: "Sofia Power",
+        github: "https://github.com/Sofipow-007"
       }
     ]
   },
@@ -84,6 +84,28 @@ const PROJECTS = [
       "assets/images/nextread/nextread-register1.png",
       "assets/images/nextread/nextread-register2.png",
       "assets/images/nextread/nextread-login.png",
+    ],
+    participants: [
+      {
+        name: "Renata Gallucci",
+        github: "https://github.com/Renaaa189"
+      },
+      {
+        name: "Alejo Guerra",
+        github: "https://github.com/AlejoGuerraa"
+      },
+      {
+        name: "Carolina Mendez",
+        github: "https://github.com/caroMendezz"
+      },
+      {
+        name: "Sofia Power",
+        github: "https://github.com/Sofipow-007"
+      },
+      {
+        name: "Agustin Rivera",
+        github: "https://github.com/AgustinR55"
+      }
     ]
   },
   {
@@ -102,8 +124,14 @@ const PROJECTS = [
       "assets/images/netview/escanerRed-image1.png",
       "assets/images/netview/netview-ips.png",
       "assets/images/netview/netview-conexiones.png"
+    ],
+    participants: [
+      {
+        name: "Sofia Power",
+        github: "https://github.com/Sofipow-007"
+      }
     ]
-  },
+  }
 ];
 
 // Traducciones para la UI
@@ -119,6 +147,7 @@ const TRANSLATIONS = {
     "about.title": "Sobre Mí",
     "about.bio": "Soy una estudiante de la Escuela Técnica N°36 \"Almirante Guillermo Brown\". Me dedico a programar mayormente en Full-Stack, implementando conocimientos en JavaScript, Python, Java, base de datos (relacionales o no relacionales), sistemas embebidos, y comenzando a programar en C++. Tengo conocimientos en Frontend aunque no me especializo normalmente a su uso completo.",
     "about.bio2": "Logré participar en proyectos grupales e individuales, utilizando herramientas como GitHub para el control de versiones y Postman para probar APIs. Me gusta aprender nuevas tecnologías y enfrentar desafíos de programación, siempre buscando mejorar mis habilidades y contribuir a proyectos interesantes.",
+    "about.bio3": "Actualmente, estoy desarrollando un curso de Desarrollo de Diseño Web Adaptativo en FreeCodeCamp, lo que me ha permitido profundizar mis conocimientos en diseño web y mejorar mis habilidades en la creación de interfaces atractivas y funcionales. Me gustaría seguir creciendo como desarrolladora, aprendiendo nuevas tecnologías y enfrentando nuevos desafíos en el mundo de la programación.",
     "about.avatarAlt": "Foto de perfil",
     "skills.title": "Habilidades",
     "skills.frontend": "Frontend",
@@ -150,6 +179,7 @@ const TRANSLATIONS = {
     "about.title": "About Me",
     "about.bio": "I'm a student at the Technical School N°36 'Almirante Guillermo Brown'. I mostly work Full-Stack implementing knowledge in JavaScript, Python, Java, databases (relational and non-relational), systems embedded, and I'm starting with C++. I have Frontend knowledge though it's not my main specialty.",
     "about.bio2": "I've participated in group and individual projects, using tools like GitHub for version control and Postman for API testing. I enjoy learning new technologies and facing programming challenges, always aiming to improve my skills and contribute to interesting projects.",
+    "about.bio3": "I'm currently developing a course on Adaptive Web Design at FreeCodeCamp, which has allowed me to deepen my knowledge in web design and improve my skills in creating attractive and functional interfaces. I would like to continue growing as a developer, learning new technologies and facing new challenges in the world of programming.",
     "about.avatarAlt": "Profile photo",
     "skills.title": "Skills",
     "skills.frontend": "Frontend",
@@ -270,20 +300,20 @@ function openModal(project) {
     }
   }
   
-  // const participantsContainer = document.getElementById("modal-participants");
-  // if (participantsContainer) {
-  //   participantsContainer.innerHTML = "";
-  //   project.participants.forEach(participant => {
-  //     const participantEl = document.createElement("div");
-  //     participantEl.className = "modal-participant";
-  //     participantEl.innerHTML = `
+  const participantsContainer = document.getElementById("modal-participants");
+  if (participantsContainer) {
+    participantsContainer.innerHTML = "";
+    project.participants.forEach(participant => {
+      const participantEl = document.createElement("div");
+      participantEl.className = "modal-participant";
+      participantEl.innerHTML = `
       
-  //     <button><a href="${participant.github}" target="_blank" rel="noopener noreferrer"> ${participant.name} </a></button>
+      <button><a href="${participant.github}" target="_blank" rel="noopener noreferrer"> ${participant.name} </a></button>
 
-  //     `;
-  //     participantsContainer.appendChild(participantEl);
-  //   });
-  // }
+      `;
+      participantsContainer.appendChild(participantEl);
+    });
+  }
 
   // — Links —
   document.getElementById("modal-github").href = project.github;

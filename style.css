@@ -795,6 +795,12 @@ footer {
     max-width: 68ch;
 }
 
+#bio3 {
+    color: var(--text-soft);
+    font-size: 1.02rem;
+    max-width: 68ch;
+}
+
 .avatar {
     width: 160px;
     height: 160px;
