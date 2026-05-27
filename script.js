@@ -2,18 +2,23 @@
 // PROYECTOS PERSONALIZADOS
 // =======================================
 const PROJECTS = [
+
+  // =============== PIXIE ===============
+
   {
     title: { es: "PIXIE", en: "PIXIE" },
     shortDesc: { es: "Asistente de escritorio en ESP32", en: "ESP32 desktop assistant" },
     fullDesc: {
-      es: "Reloj de escritorio inteligente realizado en ESP32 con pantalla OLED que centraliza información y controles que están disponibles en el celular u otras apps. Tiene una cara animada en 'Stand By', muestra reloj, fecha y clima en tiempo real y cronómetro configurable.",
-      en: "Smart desktop clock built on ESP32 with an OLED screen that centralizes information and controls available on mobile apps. Shows an animated face in standby, time, date, real-time weather and a configurable stopwatch."
+      es: "Reloj de escritorio inteligente realizado en ESP32 con pantalla OLED que centraliza información y controles que están disponibles en el celular u otras apps. Tiene una cara animada en 'Stand By', y estamos implementando una aplicación web que se comunique con el dispositivo para configurar alarmas, mostrar notificaciones, controlar el cronómetro y más funcionalidades. El proyecto se encuentra en desarrollo.",
+      en: "Smart desktop clock built on ESP32 with an OLED screen that centralizes information and controls available on mobile apps. Shows an animated face in standby, and we're developing a web app to communicate with the device for setting alarms, showing notifications, controlling the stopwatch and more features. The project is currently in development."
     },
     tech: ["Arduino", "C++", "React", "JavaScript", "Figma"],
     github: "https://github.com/Sofipow-007/PIXIE.git",
     demo: "",
     estado: "En Proceso",
-    images: [],
+    images: [
+      "assets/images/pixie/pixie-logoeyes.png"
+    ],
     participants: [
       {
         name: "Thomas Barrera Fuentes",
@@ -33,6 +38,9 @@ const PROJECTS = [
       }
     ]
   },
+
+  // =============== FitPocket ===============
+
   {
     title: { es: "FitPocket", en: "FitPocket" },
     shortDesc: { es: "Aplicación Personal de Fitness", en: "Personal Fitness App" },
@@ -66,12 +74,15 @@ const PROJECTS = [
       }
     ]
   },
+
+  // =============== NextRead ===============
+
   {
     title: { es: "NextRead", en: "NextRead" },
     shortDesc: { es: "Sistema de recomendaciones y calificaciones de libros", en: "Book recommendation and rating system" },
     fullDesc: {
-      es: "Aplicación Full-Stack en React que consume API, maneja estados y muestra libros por género, década y preferencias.",
-      en: "Full-Stack React application that consumes an API, manages state and displays books by genre, decade and user preferences."
+      es: "Aplicación Full-Stack en React que consume API, maneja estados y muestra libros por género, década y preferencias. Con NextRead nos encargamos de simplificar la búsqueda de libros y la calificación de los mismos, para que los usuarios puedan descubrir nuevas lecturas basadas en sus gustos y tendencias literarias. El proyecto se encuentra finalizado y disponible en GitHub.",
+      en: "Full-Stack React application that consumes an API, manages state and displays books by genre, decade and user preferences. NextRead simplifies book discovery and rating, allowing users to find new reads based on their tastes and literary trends. The project is completed and available on GitHub."
     },
     tech: ["Node.js", "MySQL", "JavaScript", "React", "Vite", "CSS", "bcrypt", "JWT", "Git", "Figma", "Express.js", "Sequelize"],
     github: "https://github.com/AlejoGuerraa/nextRead",
@@ -108,6 +119,9 @@ const PROJECTS = [
       }
     ]
   },
+
+  // =============== NetView ===============
+
   {
     title: { es: "NetView", en: "NetView" },
     shortDesc: { es: "Herramienta interactiva de red", en: "Interactive network tool" },
@@ -134,6 +148,33 @@ const PROJECTS = [
   }
 ];
 
+// =======================================
+// HABILIDADES BLANDAS
+// =======================================
+
+const SOFT_SKILLS = [
+  {
+    title: { es: "Comunicación Efectiva", en: "Effective Communication" },
+    description: {
+      es: "Capacidad para expresar ideas claramente y escuchar activamente, facilitando la colaboración y el entendimiento mutuo en equipos de trabajo.",
+      en: "Ability to express ideas clearly and listen actively, facilitating collaboration and mutual understanding in work teams."
+    }
+  },
+  {
+    title: { es: "Trabajo en Equipo", en: "Teamwork" },
+    description: {
+      es: "Habilidad para colaborar con otros, compartir responsabilidades y contribuir al logro de objetivos comunes en un entorno de trabajo.",
+      en: "Ability to collaborate with others, share responsibilities, and contribute to achieving common goals in a work environment."
+    }
+  },
+  {
+    title: { es: "Responsabilidad", en: "Responsibility" },
+    description: {
+      es: "Compromiso para cumplir con las tareas asignadas, asumir las consecuencias de las acciones y mantener la integridad en el trabajo.",
+      en: "Commitment to fulfill assigned tasks, take responsibility for actions, and maintain integrity in work."
+    }
+  }
+]
 // Traducciones para la UI
 const TRANSLATIONS = {
   es: {
@@ -148,6 +189,8 @@ const TRANSLATIONS = {
     "about.bio": "Soy una estudiante de la Escuela Técnica N°36 \"Almirante Guillermo Brown\". Me dedico a programar mayormente en Full-Stack, implementando conocimientos en JavaScript, Python, Java, base de datos (relacionales o no relacionales), sistemas embebidos, y comenzando a programar en C++. Tengo conocimientos en Frontend aunque no me especializo normalmente a su uso completo.",
     "about.bio2": "Logré participar en proyectos grupales e individuales, utilizando herramientas como GitHub para el control de versiones y Postman para probar APIs. Me gusta aprender nuevas tecnologías y enfrentar desafíos de programación, siempre buscando mejorar mis habilidades y contribuir a proyectos interesantes.",
     "about.bio3": "Actualmente, estoy desarrollando un curso de Desarrollo de Diseño Web Adaptativo en FreeCodeCamp, lo que me ha permitido profundizar mis conocimientos en diseño web y mejorar mis habilidades en la creación de interfaces atractivas y funcionales. Me gustaría seguir creciendo como desarrolladora, aprendiendo nuevas tecnologías y enfrentando nuevos desafíos en el mundo de la programación.",
+    "about.softTitle": "Habilidades Blandas",
+    "about.softClosing": "Cada proyecto que encaré me enseñó algo nuevo — no solo de tecnología, sino de cómo trabajar con otros, adaptarme a lo inesperado y seguir adelante cuando algo no funciona a la primera.",
     "about.avatarAlt": "Foto de perfil",
     "skills.title": "Habilidades",
     "skills.lenguajes": "Lenguajes",
@@ -182,6 +225,8 @@ const TRANSLATIONS = {
     "about.bio": "I'm a student at the Technical School N°36 'Almirante Guillermo Brown'. I mostly work Full-Stack implementing knowledge in JavaScript, Python, Java, databases (relational and non-relational), systems embedded, and I'm starting with C++. I have Frontend knowledge though it's not my main specialty.",
     "about.bio2": "I've participated in group and individual projects, using tools like GitHub for version control and Postman for API testing. I enjoy learning new technologies and facing programming challenges, always aiming to improve my skills and contribute to interesting projects.",
     "about.bio3": "I'm currently developing a course on Adaptive Web Design at FreeCodeCamp, which has allowed me to deepen my knowledge in web design and improve my skills in creating attractive and functional interfaces. I would like to continue growing as a developer, learning new technologies and facing new challenges in the world of programming.",
+    "about.softTitle": "Soft Skills",
+    "about.softClosing": "Every project I tackled taught me something new — not just about technology, but about working with others, adapting to the unexpected, and pushing forward when things don't work the first time.",
     "about.avatarAlt": "Profile photo",
     "skills.title": "Skills",
     "skills.lenguajes": "Languages",
@@ -213,16 +258,40 @@ let currentLang = localStorage.getItem('lang') || 'es';
 // INIT
 // ============================================================
 document.addEventListener("DOMContentLoaded", () => {
-  // Inicializar selector y traducciones
   const langSelect = document.querySelector('.language-select');
   if (langSelect) langSelect.value = currentLang;
   applyTranslations(currentLang);
   initLanguageSwitcher();
 
   renderProjects();
+  renderSoftSkills();
   setupModal();
 });
 
+// ============================================================
+// RENDER SOFT SKILLS
+// ============================================================
+function renderSoftSkills() {
+  const container = document.getElementById("soft-skills-container");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  SOFT_SKILLS.forEach((skill, i) => {
+    const card = document.createElement("div");
+    card.className = "soft-skill-card";  // ← sin "reveal" acá
+
+    card.innerHTML = `
+      <h4 class="soft-skill-title">${skill.title[currentLang] || skill.title.es}</h4>
+      <p class="soft-skill-desc">${skill.description[currentLang] || skill.description.es}</p>
+    `;
+
+    container.appendChild(card);
+  });
+
+  // registrar en el observer después de insertar en el DOM
+  if (window.onCardsRendered) window.onCardsRendered();
+}
 
 // ============================================================
 // RENDER
@@ -259,7 +328,7 @@ function renderProjects() {
   });
 
   const repoCount = document.getElementById("repo-count");
-if (repoCount) repoCount.textContent = PROJECTS.length;
+  if (repoCount) repoCount.textContent = PROJECTS.length;
 
   // aplicar reveal a las cards renderizadas
   if (window.onCardsRendered) window.onCardsRendered();
@@ -303,7 +372,7 @@ function openModal(project) {
       gallery.style.display = "none";
     }
   }
-  
+
   const participantsContainer = document.getElementById("modal-participants");
   if (participantsContainer) {
     participantsContainer.innerHTML = "";
@@ -312,7 +381,7 @@ function openModal(project) {
       participantEl.className = "modal-participant";
       participantEl.innerHTML = `
       
-      <button><a href="${participant.github}" target="_blank" rel="noopener noreferrer"> ${participant.name} </a></button>
+      <a href="${participant.github}" class="btn-ghost" target="_blank" rel="noopener noreferrer"> ${participant.name}</button>
 
       `;
       participantsContainer.appendChild(participantEl);
@@ -384,6 +453,9 @@ function applyTranslations(lang) {
   if (projectsContainer && projectsContainer.children.length > 0) {
     renderProjects();
   }
+
+  const softContainer = document.getElementById('soft-skills-container');
+  if (softContainer) renderSoftSkills();
 }
 
 function initLanguageSwitcher() {
@@ -420,7 +492,6 @@ function renderGallery(container, images) {
   let current = 0;
 
   container.innerHTML = `
-    <p class="modal-gallery-title">Imágenes del proyecto</p>
     <div class="gallery">
       <button class="gallery-btn gallery-prev" aria-label="Anterior">&#8249;</button>
       <div class="gallery-track-wrapper">
@@ -476,13 +547,13 @@ function renderGallery(container, images) {
 
   // — Configuración — ajustá estos valores a tu gusto
   const CONFIG = {
-    count:        120,    // cantidad de estrellas
-    speedMin:     0.08,   // velocidad mínima de caída
-    speedMax:     0.35,   // velocidad máxima de caída
-    sizeMin:      0.4,    // tamaño mínimo (px)
-    sizeMax:      1.8,    // tamaño máximo (px)
+    count: 120,    // cantidad de estrellas
+    speedMin: 0.08,   // velocidad mínima de caída
+    speedMax: 0.35,   // velocidad máxima de caída
+    sizeMin: 0.4,    // tamaño mínimo (px)
+    sizeMax: 1.8,    // tamaño máximo (px)
     twinkleSpeed: 0.012,  // qué tan rápido parpadean
-    color:        "155, 123, 255",  // RGB del --primary de tu CSS
+    color: "155, 123, 255",  // RGB del --primary de tu CSS
   };
 
   let stars = [];
@@ -490,19 +561,19 @@ function renderGallery(container, images) {
 
   // Redimensiona el canvas al tamaño del viewport
   function resize() {
-    canvas.width  = window.innerWidth;
+    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   }
 
   // Crea una estrella con valores aleatorios
   function createStar(randomY = false) {
     return {
-      x:       Math.random() * canvas.width,
-      y:       randomY ? Math.random() * canvas.height : -5,
-      size:    CONFIG.sizeMin + Math.random() * (CONFIG.sizeMax - CONFIG.sizeMin),
-      speed:   CONFIG.speedMin + Math.random() * (CONFIG.speedMax - CONFIG.speedMin),
+      x: Math.random() * canvas.width,
+      y: randomY ? Math.random() * canvas.height : -5,
+      size: CONFIG.sizeMin + Math.random() * (CONFIG.sizeMax - CONFIG.sizeMin),
+      speed: CONFIG.speedMin + Math.random() * (CONFIG.speedMax - CONFIG.speedMin),
       opacity: Math.random(),
-      delta:   (Math.random() > 0.5 ? 1 : -1) * CONFIG.twinkleSpeed,
+      delta: (Math.random() > 0.5 ? 1 : -1) * CONFIG.twinkleSpeed,
     };
   }
 
@@ -517,7 +588,7 @@ function renderGallery(container, images) {
     stars.forEach(star => {
       // Parpadeo
       star.opacity += star.delta;
-      if (star.opacity >= 1)   { star.opacity = 1;   star.delta *= -1; }
+      if (star.opacity >= 1) { star.opacity = 1; star.delta *= -1; }
       if (star.opacity <= 0.1) { star.opacity = 0.1; star.delta *= -1; }
 
       // Caída lenta
@@ -588,11 +659,13 @@ function renderGallery(container, images) {
 
   const originalCreate = window.createRepoCard;  // por si ya la tenés
 
-  // Sobreescribimos para agregar reveal automático a las cards
-  window.onCardsRendered = function() {
-    document.querySelectorAll(".project-card:not(.observed)").forEach((card, i) => {
+  // Sobreescribimos para agregar reveal automático a las cards dinámicas
+  window.onCardsRendered = function () {
+    document.querySelectorAll(
+      ".project-card:not(.observed), .soft-skill-card:not(.observed)"
+    ).forEach((card, i) => {
       card.classList.add("reveal");
-      card.style.transitionDelay = `${i * 0.08}s`;  // escalonado automático
+      card.style.transitionDelay = `${i * 0.08}s`;
       card.classList.add("observed");
       observer.observe(card);
     });

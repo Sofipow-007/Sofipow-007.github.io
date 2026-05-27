@@ -58,7 +58,8 @@
                     Estudiante de escuela Técnica, desarrolladora especializada en BackEnd y Bases de Datos.
                 </p>
                 <div class="hero-actions reveal reveal-delay-4">
-                    <a href="https://github.com/Sofipow-007" target="_blank" class="btn-primary" data-i18n="hero.github">
+                    <a href="https://github.com/Sofipow-007" target="_blank" class="btn-primary"
+                        data-i18n="hero.github">
                         Ver GitHub
                     </a>
                 </div>
@@ -77,35 +78,41 @@
         <div class="section-header reveal reveal-delay-1">
             <h2 class="section-title" data-i18n="about.title">Sobre Mí</h2>
         </div>
+
         <div class="about-block reveal reveal-delay-2">
-            <!-- El script puede completar esto con tu bio de GitHub,
-           o simplemente escribís tu texto acá -->
             <p id="bio" data-i18n="about.bio">
-                Soy una estudiante de la Escuela Técnica N°36 "Almirante Guillermo Brown". Me dedico a programar mayormente en
-                Full-Stack, implementando conocimientos en JavaScript, Python, Java, base de datos (relacionales o no
-                relacionales), sistemas embebidos, y comenzando a programar en C++. Tengo conocimientos en Frontend aunque no me especializo
-                normalmente a su uso completo.
+                Soy una estudiante de la Escuela Técnica N°36 "Almirante Guillermo Brown"...
             </p>
             <img id="avatar" src="https://avatars.githubusercontent.com/u/224655589?v=4" alt="Foto de perfil"
                 class="avatar" data-i18n-alt="about.avatarAlt" />
         </div>
-        <br>
-        <div class="about-block reveal reveal-delay-3">
-            <p id="bio2" data-i18n="about.bio2">
-                Logré participar en proyectos grupales e individuales, utilizando herramientas
-                como GitHub para el control de versiones y Postman para probar APIs. Me gusta aprender
-                nuevas tecnologías y enfrentar desafíos de programación, siempre buscando mejorar mis
-                habilidades y contribuir a proyectos interesantes.
-            </p>
-        </div>
-        <br>
-        <div class="about-block reveal reveal-delay-4">
-            <p id="bio3" data-i18n="about.bio3">
-                Actualmente, estoy desarrollando un curso de Desarrollo de Diseño Web Adaptativo en FreeCodeCamp, lo que me ha permitido profundizar mis conocimientos en diseño web y mejorar mis habilidades en la creación de interfaces atractivas y funcionales. Me gustaría seguir creciendo como desarrolladora, aprendiendo nuevas tecnologías y enfrentando nuevos desafíos en el mundo de la programación.
-            </p>
-        </div>
-        <br>
 
+        <div class="about-block reveal reveal-delay-3" style="margin-top: 16px;">
+            <p id="bio2" data-i18n="about.bio2">
+                Logré participar en proyectos grupales e individuales...
+            </p>
+        </div>
+
+        <div class="about-block reveal reveal-delay-4" style="margin-top: 16px;">
+            <p id="bio3" data-i18n="about.bio3">
+                Actualmente, estoy desarrollando un curso de Desarrollo de Diseño Web Adaptativo...
+            </p>
+        </div>
+
+        <!-- ── Habilidades Blandas ── -->
+        <div class="soft-skills-section">
+            <h3 class="section-subtitle reveal" data-i18n="about.softTitle">Habilidades Blandas</h3>
+            <div id="soft-skills-container" class="soft-skills-grid"></div>
+
+            <!-- Texto especial al final -->
+            <div class="soft-skills-closing reveal">
+                <p data-i18n="about.softClosing">
+                    Cada proyecto que encaré me enseñó algo nuevo — no solo de tecnología,
+                    sino de cómo trabajar con otros, adaptarme a lo inesperado y seguir
+                    adelante cuando algo no funciona a la primera.
+                </p>
+            </div>
+        </div>
     </section>
 
 
@@ -122,7 +129,8 @@
             <div class="skill-category reveal reveal-delay-1">
                 <p class="skill-cat-label" data-i18n="skills.lenguajes">Lenguajes</p>
                 <div class="skill-icon-grid">
-                    <div class="skill-icon-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+                    <div class="skill-icon-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span>
+                    </div>
                     <div class="skill-icon-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
                     <div class="skill-icon-item"><i class="devicon-java-plain colored"></i><span>Java</span></div>
                     <div class="skill-icon-item"><i class="devicon-cplusplus-plain colored"></i><span>C++</span></div>
@@ -195,9 +203,9 @@
             <h4 id="modal-tag"></h4>
             <h3 id="modal-title"></h3>
             <p id="modal-description"></p>
-            
+
             <div id="modal-gallery" class="modal-gallery"></div>
-            
+
             <div class="modal-tech-wrapper">
                 <p class="modal-tech-title" data-i18n="modal.techTitle">Tecnologías</p>
                 <div id="modal-tech" class="modal-tech"></div>
@@ -226,13 +234,16 @@
             </p>
             <form action="/enviar-correo" method="post" class="contact-form">
                 <label for="contact-name" data-i18n="contact.nameLabel">Nombre:</label>
-                <input type="text" required placeholder="Nombre" class="contact-input" id="contact-name" data-i18n-placeholder="contact.namePlaceholder">
+                <input type="text" required placeholder="Nombre" class="contact-input" id="contact-name"
+                    data-i18n-placeholder="contact.namePlaceholder">
                 <br>
                 <label for="contact-email" data-i18n="contact.emailLabel">Email:</label>
-                <input type="email" required placeholder="tu@email.com" class="contact-input" id="contact-email" data-i18n-placeholder="contact.emailPlaceholder">
+                <input type="email" required placeholder="tu@email.com" class="contact-input" id="contact-email"
+                    data-i18n-placeholder="contact.emailPlaceholder">
                 <br>
                 <label for="contact-message" data-i18n="contact.messageLabel">Mensaje:</label>
-                <textarea placeholder="Escribe tu mensaje aquí" class="message-input" name="message" id="contact-message" data-i18n-placeholder="contact.messagePlaceholder"></textarea>
+                <textarea required placeholder="Escribe tu mensaje aquí" class="message-input" name="message"
+                    id="contact-message" data-i18n-placeholder="contact.messagePlaceholder"></textarea>
 
                 <button type="submit" class="btn-primary" data-i18n="contact.send">Enviar mensaje</button>
             </form>
@@ -248,10 +259,12 @@
             © <span id="year"></span> Sofi
         </span>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/sofia-power-73b3483b7/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/sofia-power-73b3483b7/" target="_blank" rel="noopener noreferrer"
+                class="social-btn" aria-label="LinkedIn">
                 <i class="devicon-linkedin-plain"></i>
             </a>
-            <a href="https://github.com/Sofipow-007" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+            <a href="https://github.com/Sofipow-007" target="_blank" rel="noopener noreferrer" class="social-btn"
+                aria-label="GitHub">
                 <i class="devicon-github-plain"></i>
             </a>
         </div>
