@@ -423,21 +423,26 @@ footer {
 /* ============ SOFT SKILLS ============ */
 .soft-skills-section {
     margin-top: 40px;
+    padding: 24px;
   }
   
   .soft-skills-section .section-subtitle {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+    color: var(--text-soft);
+    letter-spacing: 0.08em;
   }
   
   .soft-skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 14px;
-    margin-bottom: 32px;
+    gap: 16px;
+    margin-bottom: 20px;
   }
   
   .soft-skill-card {
-    padding: 22px 20px;
+    padding: 20px 18px;
+    min-height: 132px;
     border-radius: var(--radius);
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -446,7 +451,6 @@ footer {
     flex-direction: column;
     gap: 10px;
     transition: var(--transition);
-    cursor: default;
   }
   
   .soft-skill-card:hover {
@@ -455,39 +459,17 @@ footer {
     background: var(--bg-card-2);
   }
   
-  .soft-skill-icon {
-    font-size: 1.8rem;
-    line-height: 1;
-  }
-  
   .soft-skill-title {
     font-family: "DM Serif Display", serif;
-    font-size: 1.05rem;
+    font-size: 1.02rem;
     color: var(--text);
     font-weight: 400;
   }
   
   .soft-skill-desc {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--text-soft);
-    line-height: 1.6;
-  }
-  
-  /* Texto de cierre */
-  .soft-skills-closing {
-    padding: 20px 24px;
-    border-left: 2px solid var(--primary);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    background: var(--primary-soft);
-  }
-  
-  .soft-skills-closing p {
-    font-family: "DM Serif Display", serif;
-    font-size: 1.05rem;
-    font-style: italic;
-    color: var(--text-soft);
-    line-height: 1.7;
-    max-width: 72ch;
+    line-height: 1.5;
   }
 
 /* ============ PROJECT CARDS ============ */
@@ -553,10 +535,13 @@ footer {
     right: 20px;
     width: 96px;
     height: 96px;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     border-radius: 12px;
     border: 1px solid var(--border-strong);
     box-shadow: var(--shadow-soft);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 8px;
 }
 
 /* ============ MODAL ============ */
@@ -805,14 +790,29 @@ footer {
         grid-template-columns: 1fr;
     }
     .project-card.with-thumb {
-        padding-right: 20px; /* reset for stacked layout when thumb exists */
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        column-gap: 12px;
+        align-items: start;
+        padding-right: 20px;
     }
-    .project-image {
+    .project-card.with-thumb .modal-tag,
+    .project-card.with-thumb .project-title,
+    .project-card.with-thumb .project-desc {
+        grid-column: 1;
+    }
+    .project-card.with-thumb .project-image {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+        justify-self: end;
+        align-self: start;
         position: static;
-        width: 100%;
-        height: auto;
-        border-radius: var(--radius-sm);
-        margin-top: 10px;
+        width: 84px;
+        height: 84px;
+        max-width: 84px;
+        border-radius: 10px;
+        margin-top: 0;
+        padding: 6px;
     }
 }
 
@@ -1116,8 +1116,24 @@ footer {
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 900px) {
-    .skills-grid {
-        grid-template-columns: 1fr;
+    .hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .computer-gif {
+        margin: 0;
+        width: min(100%, 360px);
+        align-self: center;
+    }
+
+    #projects-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .soft-skills-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .about-block {
@@ -1133,19 +1149,77 @@ footer {
     .nav {
         border-radius: 28px;
         padding: 14px 16px;
+        align-items: center;
+        position: relative;
     }
 
     .nav-links {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
         display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 16px;
+        border-radius: 22px;
+        border: 1px solid var(--border);
+        background: rgba(18, 13, 31, 0.94);
+        box-shadow: var(--shadow-soft);
+        backdrop-filter: blur(18px);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links .language-switcher {
+        width: 100%;
+    }
+
+    .nav-links .language-select {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(155, 123, 255, 0.12);
     }
 
     .nav-toggle {
         display: inline-flex;
     }
 
+    .nav-toggle.active {
+        background: rgba(155, 123, 255, 0.12);
+        border-color: var(--border-strong);
+    }
+
     .hero {
         min-height: auto;
-        padding: 70px 0 40px;
+        padding: 70px 18px 40px;
+    }
+
+    .hero-inner {
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    #projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    .soft-skills-grid {
+        grid-template-columns: 1fr;
     }
 
     .section-header {
@@ -1153,8 +1227,20 @@ footer {
         flex-direction: column;
     }
 
+    .contact-form {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .contact-input,
+    .message-input,
+    .contact-form button {
+        width: 100%;
+    }
+
     .footer {
         flex-direction: column;
+        align-items: flex-start;
     }
 }
 
@@ -1170,7 +1256,7 @@ footer {
         font-size: 2.8rem;
     }
 
-    .skill-group,
+    .soft-skills-section,
     .contact-block,
     .about-block {
         padding: 18px;

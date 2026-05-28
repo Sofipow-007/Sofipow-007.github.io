@@ -156,22 +156,43 @@ const SOFT_SKILLS = [
   {
     title: { es: "Comunicación Efectiva", en: "Effective Communication" },
     description: {
-      es: "Capacidad para expresar ideas claramente y escuchar activamente, facilitando la colaboración y el entendimiento mutuo en equipos de trabajo.",
-      en: "Ability to express ideas clearly and listen actively, facilitating collaboration and mutual understanding in work teams."
+      es: "Comunico ideas con claridad y escucho de forma activa.",
+      en: "I communicate ideas clearly and listen actively."
     }
   },
   {
     title: { es: "Trabajo en Equipo", en: "Teamwork" },
     description: {
-      es: "Habilidad para colaborar con otros, compartir responsabilidades y contribuir al logro de objetivos comunes en un entorno de trabajo.",
-      en: "Ability to collaborate with others, share responsibilities, and contribute to achieving common goals in a work environment."
+      es: "Colaboro en grupo, reparto tareas y apoyo al logro común.",
+      en: "I collaborate in groups, share tasks, and support shared goals."
     }
   },
   {
     title: { es: "Responsabilidad", en: "Responsibility" },
     description: {
-      es: "Compromiso para cumplir con las tareas asignadas, asumir las consecuencias de las acciones y mantener la integridad en el trabajo.",
-      en: "Commitment to fulfill assigned tasks, take responsibility for actions, and maintain integrity in work."
+      es: "Cumplo con lo pactado y mantengo el compromiso en el trabajo.",
+      en: "I follow through on commitments and stay accountable."
+    }
+  },
+  {
+    "title": { es: "Capacidad para Resolver Problemas", en: "Problem-Solving Skills" },
+    "description": {
+      es: "Analizo situaciones, encuentro soluciones y adapto el enfoque.",
+      en: "I analyze situations, find solutions, and adapt my approach."
+    }
+  },
+  {
+    "title": { es: "Puntualidad y Escucha Activa", en: "Punctuality and Active Listening" },
+    "description": {
+      es: "Llego a tiempo y me concentro en lo que cada persona necesita.",
+      en: "I arrive on time and stay attentive to what others need."
+    }
+  },
+  {
+    "title": { es: "Respeto y Empatía", en: "Respect and Empathy" },
+    "description": {
+      es: "Valoro distintas perspectivas y creo un ambiente de respeto.",
+      en: "I value different perspectives and foster respectful collaboration."
     }
   }
 ]
@@ -179,7 +200,7 @@ const SOFT_SKILLS = [
 const TRANSLATIONS = {
   es: {
     "nav.about": "Sobre Mí",
-    "nav.skills": "Habilidades",
+    "nav.skills": "Tecnologías",
     "nav.projects": "Proyectos",
     "nav.contact": "Contacto",
     "hero.available": "Disponible para trabajar",
@@ -192,7 +213,7 @@ const TRANSLATIONS = {
     "about.softTitle": "Habilidades Blandas",
     "about.softClosing": "Cada proyecto que encaré me enseñó algo nuevo — no solo de tecnología, sino de cómo trabajar con otros, adaptarme a lo inesperado y seguir adelante cuando algo no funciona a la primera.",
     "about.avatarAlt": "Foto de perfil",
-    "skills.title": "Habilidades",
+    "skills.title": "Tecnologías",
     "skills.lenguajes": "Lenguajes",
     "skills.frontend": "Frontend",
     "skills.backend": "Backend",
@@ -215,7 +236,7 @@ const TRANSLATIONS = {
   },
   en: {
     "nav.about": "About",
-    "nav.skills": "Skills",
+    "nav.skills": "Technologies",
     "nav.projects": "Projects",
     "nav.contact": "Contact",
     "hero.available": "Available for work",
@@ -228,7 +249,7 @@ const TRANSLATIONS = {
     "about.softTitle": "Soft Skills",
     "about.softClosing": "Every project I tackled taught me something new — not just about technology, but about working with others, adapting to the unexpected, and pushing forward when things don't work the first time.",
     "about.avatarAlt": "Profile photo",
-    "skills.title": "Skills",
+    "skills.title": "Technologies",
     "skills.lenguajes": "Languages",
     "skills.frontend": "Frontend",
     "skills.backend": "Backend",
@@ -255,9 +276,56 @@ let currentLang = localStorage.getItem('lang') || 'es';
 
 
 // ============================================================
+// NAV MOBILE
+// ============================================================
+function setupMobileNavigation() {
+  const toggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (!toggle || !navLinks) return;
+
+  const closeMenu = () => {
+    navLinks.classList.remove('active');
+    toggle.classList.remove('active');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+
+  toggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('active');
+    toggle.classList.toggle('active', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  const langSelect = document.querySelector('.language-select');
+  if (langSelect) {
+    langSelect.addEventListener('change', closeMenu);
+  }
+
+  document.addEventListener('click', (event) => {
+    const nav = document.querySelector('.nav');
+    if (window.innerWidth > 720) return;
+    if (nav && !nav.contains(event.target)) {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 720) {
+      closeMenu();
+    }
+  });
+}
+
+// ============================================================
 // INIT
 // ============================================================
 document.addEventListener("DOMContentLoaded", () => {
+  setupMobileNavigation();
+
   const langSelect = document.querySelector('.language-select');
   if (langSelect) langSelect.value = currentLang;
   applyTranslations(currentLang);
