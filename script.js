@@ -232,7 +232,10 @@ const TRANSLATIONS = {
     "contact.emailPlaceholder": "tu@email.com",
     "contact.messageLabel": "Mensaje:",
     "contact.messagePlaceholder": "Escribe tu mensaje aquí",
-    "contact.send": "Enviar mensaje"
+    "contact.send": "Enviar mensaje",
+    "contactModal.title": "Mensaje enviado",
+    "contactModal.sub": "Gracias por escribirme. Te respondo en un momento.",
+    "contactModal.btn": "Cerrar",
   },
   en: {
     "nav.about": "About",
@@ -268,7 +271,10 @@ const TRANSLATIONS = {
     "contact.emailPlaceholder": "your@email.com",
     "contact.messageLabel": "Message:",
     "contact.messagePlaceholder": "Write your message here",
-    "contact.send": "Send message"
+    "contact.send": "Send message",
+    "contactModal.title": "Message sent!",
+    "contactModal.sub": "Thanks for reaching out. I'll get back to you shortly.",
+    "contactModal.btn": "Close"
   }
 };
 
@@ -334,6 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProjects();
   renderSoftSkills();
   setupModal();
+  setupContactForm();
 });
 
 // ============================================================
@@ -552,6 +559,80 @@ function setupModal() {
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal();
+  });
+}
+
+// ============================================================
+// FORMULARIO DE CONTACTO
+// ============================================================
+function setupContactForm() {
+  const form = document.getElementById("contact-form");
+  const submitBtn = document.getElementById("contact-submit");
+  const modal = document.getElementById("contact-modal");
+  const modalClose = document.getElementById("contact-modal-close");
+
+  if (!form) return;
+
+  // — Envío del formulario con Formspree —
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    // Estado de carga
+    submitBtn.disabled = true;
+    submitBtn.textContent = currentLang === "es" ? "Enviando..." : "Sending...";
+
+    try {
+      const response = await fetch("https://formspree.io/f/maqkvbrv", {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        form.reset();
+        openContactModal();
+      } else {
+        throw new Error("Error en el envío");
+      }
+
+    } catch (err) {
+      submitBtn.textContent =
+        currentLang === "es" ? "Error, intentá de nuevo" : "Error, try again";
+      submitBtn.disabled = false;
+      setTimeout(() => {
+        submitBtn.textContent =
+          currentLang === "es" ? "Enviar mensaje" : "Send message";
+      }, 3000);
+    }
+  });
+
+  // — Abrir modal de confirmación —
+  function openContactModal() {
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+
+    // Restaurar el botón mientras el modal está abierto
+    submitBtn.disabled = false;
+    submitBtn.textContent =
+      currentLang === "es" ? "Enviar mensaje" : "Send message";
+  }
+
+  // — Cerrar modal —
+  function closeContactModal() {
+    modal.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+
+  modalClose.addEventListener("click", closeContactModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeContactModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      closeContactModal();
+    }
   });
 }
 

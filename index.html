@@ -223,21 +223,44 @@
             <p class="contact-sub" data-i18n="contact.sub">
                 ¿Tenés un proyecto en mente o querés charlar? Escribime.
             </p>
-            <form action="/enviar-correo" method="post" class="contact-form">
-                <label for="contact-name" data-i18n="contact.nameLabel">Nombre:</label>
-                <input type="text" required placeholder="Nombre" class="contact-input" id="contact-name"
-                    data-i18n-placeholder="contact.namePlaceholder">
-                <br>
-                <label for="contact-email" data-i18n="contact.emailLabel">Email:</label>
-                <input type="email" required placeholder="tu@email.com" class="contact-input" id="contact-email"
-                    data-i18n-placeholder="contact.emailPlaceholder">
-                <br>
-                <label for="contact-message" data-i18n="contact.messageLabel">Mensaje:</label>
-                <textarea required placeholder="Escribe tu mensaje aquí" class="message-input" name="message"
-                    id="contact-message" data-i18n-placeholder="contact.messagePlaceholder"></textarea>
+            <form class="contact-form" id="contact-form">
 
-                <button type="submit" class="btn-primary" data-i18n="contact.send">Enviar mensaje</button>
-            </form>
+                <div class="contact-field">
+                    <label for="contact-name" data-i18n="contact.nameLabel">Nombre:</label>
+                    <input type="text" name="nombre" required placeholder="Nombre" class="contact-input"
+                        id="contact-name" data-i18n-placeholder="contact.namePlaceholder">
+                </div>
+
+                <div class="contact-field">
+                    <label for="contact-email" data-i18n="contact.emailLabel">Email:</label>
+                    <input type="email" name="email" required placeholder="tu@email.com" class="contact-input"
+                        id="contact-email" data-i18n-placeholder="contact.emailPlaceholder">
+                </div>
+
+                <div class="contact-field">
+                    <label for="contact-message" data-i18n="contact.messageLabel">Mensaje:</label>
+                    <textarea name="mensaje" required placeholder="Escribe tu mensaje aquí" class="message-input"
+                        id="contact-message" data-i18n-placeholder="contact.messagePlaceholder"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary" id="contact-submit" data-i18n="contact.send">Enviar
+                    mensaje</button>
+
+                </form>
+        </div>
+
+        <!-- MODAL CONFIRMACIÓN CONTACTO -->
+        <div id="contact-modal" class="contact-modal hidden">
+            <div class="contact-modal-content">
+                <div class="contact-modal-icon">★</div>
+                <h3 class="contact-modal-title" data-i18n="contactModal.title">Mensaje enviado</h3>
+                <p class="contact-modal-sub" data-i18n="contactModal.sub">
+                    Gracias por escribirme. Te respondo en un momento.
+                </p>
+                <button class="btn-primary" id="contact-modal-close" data-i18n="contactModal.btn">
+                    Cerrar
+                </button>
+            </div>
         </div>
     </section>
 
@@ -271,3 +294,10 @@
 </body>
 
 </html>
+
+<!-- 
+ ／l、
+（ﾟ､ ｡ ７
+  l、ﾞ~ヽ
+  じしf_,)ノ
+ -->
