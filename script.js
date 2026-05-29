@@ -209,7 +209,7 @@ const TRANSLATIONS = {
     "about.title": "Sobre Mí",
     "about.bio": "Soy una estudiante de la Escuela Técnica N°36 \"Almirante Guillermo Brown\". Me dedico a programar mayormente en Full-Stack, implementando conocimientos en JavaScript, Python, Java, base de datos (relacionales o no relacionales), sistemas embebidos, y comenzando a programar en C++. Tengo conocimientos en Frontend aunque no me especializo normalmente a su uso completo.",
     "about.bio2": "Logré participar en proyectos grupales e individuales, utilizando herramientas como GitHub para el control de versiones y Postman para probar APIs. Me gusta aprender nuevas tecnologías y enfrentar desafíos de programación, siempre buscando mejorar mis habilidades y contribuir a proyectos interesantes.",
-    "about.bio3": "Actualmente, estoy desarrollando un curso de Desarrollo de Diseño Web Adaptativo en FreeCodeCamp, lo que me ha permitido profundizar mis conocimientos en diseño web y mejorar mis habilidades en la creación de interfaces atractivas y funcionales. Me gustaría seguir creciendo como desarrolladora, aprendiendo nuevas tecnologías y enfrentando nuevos desafíos en el mundo de la programación.",
+    "about.bio3": "Actualmente, estoy desarrollando un curso de \"Desarrollo de Diseño Web Adaptativo\" en FreeCodeCamp, lo que me ha permitido profundizar mis conocimientos en diseño web y mejorar mis habilidades en la creación de interfaces atractivas y funcionales. A su vez, estoy haciendo un curso con enfoque AI-First, para poder fortalecer una mentalidad activa orientada a la inteligencia artificial en la programación.",
     "about.softTitle": "Habilidades Blandas",
     "about.softClosing": "Cada proyecto que encaré me enseñó algo nuevo — no solo de tecnología, sino de cómo trabajar con otros, adaptarme a lo inesperado y seguir adelante cuando algo no funciona a la primera.",
     "about.avatarAlt": "Foto de perfil",
@@ -236,9 +236,10 @@ const TRANSLATIONS = {
     "contactModal.title": "Mensaje enviado",
     "contactModal.sub": "Gracias por escribirme. Te respondo en un momento.",
     "contactModal.btn": "Cerrar",
+    "footer.rights": "Todos los derechos reservados."
   },
   en: {
-    "nav.about": "About",
+    "nav.about": "About Me",
     "nav.skills": "Technologies",
     "nav.projects": "Projects",
     "nav.contact": "Contact",
@@ -248,7 +249,7 @@ const TRANSLATIONS = {
     "about.title": "About Me",
     "about.bio": "I'm a student at the Technical School N°36 'Almirante Guillermo Brown'. I mostly work Full-Stack implementing knowledge in JavaScript, Python, Java, databases (relational and non-relational), systems embedded, and I'm starting with C++. I have Frontend knowledge though it's not my main specialty.",
     "about.bio2": "I've participated in group and individual projects, using tools like GitHub for version control and Postman for API testing. I enjoy learning new technologies and facing programming challenges, always aiming to improve my skills and contribute to interesting projects.",
-    "about.bio3": "I'm currently developing a course on Adaptive Web Design at FreeCodeCamp, which has allowed me to deepen my knowledge in web design and improve my skills in creating attractive and functional interfaces. I would like to continue growing as a developer, learning new technologies and facing new challenges in the world of programming.",
+    "about.bio3": "I'm currently developing a course on \"Adaptive Web Design\" at FreeCodeCamp, which has allowed me to deepen my knowledge in web design and improve my skills in creating attractive and functional interfaces. I'm also taking a course on \"AI-First\" development to enhance my understanding of artificial intelligence in programming.",
     "about.softTitle": "Soft Skills",
     "about.softClosing": "Every project I tackled taught me something new — not just about technology, but about working with others, adapting to the unexpected, and pushing forward when things don't work the first time.",
     "about.avatarAlt": "Profile photo",
@@ -274,7 +275,8 @@ const TRANSLATIONS = {
     "contact.send": "Send message",
     "contactModal.title": "Message sent!",
     "contactModal.sub": "Thanks for reaching out. I'll get back to you shortly.",
-    "contactModal.btn": "Close"
+    "contactModal.btn": "Close",
+    "footer.rights": "All rights reserved."
   }
 };
 
