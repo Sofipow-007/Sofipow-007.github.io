@@ -206,6 +206,7 @@ const TRANSLATIONS = {
     "hero.available": "Disponible para trabajar",
     "hero.sub": "Estudiante de escuela Técnica, desarrolladora especializada en BackEnd y Bases de Datos.",
     "hero.github": "Ver GitHub",
+    "hero.cv": "Descargar CV",
     "about.title": "Sobre Mí",
     "about.bio": "Soy una estudiante de la Escuela Técnica N°36 \"Almirante Guillermo Brown\". Me dedico a programar mayormente en Full-Stack, implementando conocimientos en JavaScript, Python, Java, base de datos (relacionales o no relacionales), sistemas embebidos, y comenzando a programar en C++. Tengo conocimientos en Frontend aunque no me especializo normalmente a su uso completo.",
     "about.bio2": "Logré participar en proyectos grupales e individuales, utilizando herramientas como GitHub para el control de versiones y Postman para probar APIs. Me gusta aprender nuevas tecnologías y enfrentar desafíos de programación, siempre buscando mejorar mis habilidades y contribuir a proyectos interesantes.",
@@ -246,6 +247,7 @@ const TRANSLATIONS = {
     "hero.available": "Available for work",
     "hero.sub": "Technical school student, developer specialized in Backend and Databases.",
     "hero.github": "View GitHub",
+    "hero.cv": "Download CV",
     "about.title": "About Me",
     "about.bio": "I'm a student at the Technical School N°36 'Almirante Guillermo Brown'. I mostly work Full-Stack implementing knowledge in JavaScript, Python, Java, databases (relational and non-relational), systems embedded, and I'm starting with C++. I have Frontend knowledge though it's not my main specialty.",
     "about.bio2": "I've participated in group and individual projects, using tools like GitHub for version control and Postman for API testing. I enjoy learning new technologies and facing programming challenges, always aiming to improve my skills and contribute to interesting projects.",
@@ -281,6 +283,22 @@ const TRANSLATIONS = {
 };
 
 let currentLang = localStorage.getItem('lang') || 'es';
+
+// Actualiza el enlace del CV según el idioma seleccionado.
+function updateCvLink(lang) {
+  const cvEl = document.getElementById('download-cv');
+  if (!cvEl) return;
+  // Rutas relativas dentro del proyecto. Coloca tus PDFs en assets/docs/
+  const paths = {
+    es: 'assets/docs/Curriculum_Vitae_Sofia_Power.pdf',
+    // en: 'assets/docs/CV-EN.pdf'
+  };
+  const href = paths[lang] || paths.es;
+  cvEl.href = href;
+  // sugerir nombre de archivo al descargar
+  const fileName = href.split('/').pop();
+  cvEl.setAttribute('download', fileName);
+}
 
 
 // ============================================================
@@ -523,6 +541,9 @@ function applyTranslations(lang) {
     const text = map[key] || TRANSLATIONS['es'][key] || key;
     el.setAttribute('aria-label', text);
   });
+
+  // Actualiza link del CV (si existe)
+  if (typeof updateCvLink === 'function') updateCvLink(lang);
 
   // re-render projects so project texts reflect language
   // (keeps modal and cards in sync)
