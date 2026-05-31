@@ -290,8 +290,8 @@ function updateCvLink(lang) {
   if (!cvEl) return;
   // Rutas relativas dentro del proyecto. Coloca tus PDFs en assets/docs/
   const paths = {
-    es: 'assets/docs/Curriculum_Vitae_Sofia_Power.pdf',
-    // en: 'assets/docs/CV-EN.pdf'
+    es: 'assets/docs/Curriculum_Vitae_Sofia_Power_ES.pdf',
+    en: 'assets/docs/Curriculum_Vitae_Sofia_Power_EN.pdf'
   };
   const href = paths[lang] || paths.es;
   cvEl.href = href;
