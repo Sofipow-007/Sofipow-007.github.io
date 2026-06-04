@@ -236,7 +236,10 @@
                 <div class="contact-field">
                     <label for="contact-email" data-i18n="contact.emailLabel">Email:</label>
                     <input type="email" name="email" required placeholder="tu@email.com" class="contact-input"
-                        id="contact-email" data-i18n-placeholder="contact.emailPlaceholder">
+                        id="contact-email" data-i18n-placeholder="contact.emailPlaceholder"
+                        pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+                        title="Ingresa un email válido">
+                    <p class="contact-error hidden" id="contact-email-error"></p>
                 </div>
 
                 <div class="contact-field">

@@ -1020,6 +1020,17 @@ footer {
   border-color: var(--border-strong);
 }
 
+.contact-error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  min-height: 1.2rem;
+  margin-top: 4px;
+}
+
+.contact-error.hidden {
+  display: none;
+}
+
 .message-input {
   width: 100%;
   padding: 12px 16px;

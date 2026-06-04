@@ -596,9 +596,72 @@ function setupContactForm() {
 
   if (!form) return;
 
+  const contactEmail = document.getElementById("contact-email");
+  const contactEmailError = document.getElementById("contact-email-error");
+
+  const KNOWN_EMAIL_PROVIDERS = [
+    "gmail.com",
+    "hotmail.com",
+    "outlook.com",
+    "yahoo.com",
+    "icloud.com",
+    "live.com",
+    "proton.me",
+    "protonmail.com",
+    "aol.com"
+  ];
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function isKnownEmailProvider(email) {
+    const domain = email.split("@")[1]?.toLowerCase();
+    return domain ? KNOWN_EMAIL_PROVIDERS.includes(domain) : false;
+  }
+
+  function showEmailError(message) {
+    if (!contactEmailError) return;
+    contactEmailError.textContent = message;
+    contactEmailError.classList.remove("hidden");
+  }
+
+  function hideEmailError() {
+    if (!contactEmailError) return;
+    contactEmailError.textContent = "";
+    contactEmailError.classList.add("hidden");
+  }
+
   // — Envío del formulario con Formspree —
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
+
+    const emailValue = contactEmail ? contactEmail.value.trim() : "";
+    if (!isValidEmail(emailValue)) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = currentLang === "es" ? "Enviar mensaje" : "Send message";
+      showEmailError(
+        currentLang === "es"
+          ? "Por favor ingresa un email válido."
+          : "Please enter a valid email."
+      );
+      if (contactEmail) contactEmail.focus();
+      return;
+    }
+
+    if (!isKnownEmailProvider(emailValue)) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = currentLang === "es" ? "Enviar mensaje" : "Send message";
+      showEmailError(
+        currentLang === "es"
+          ? "Usa un email de un proveedor conocido como gmail.com o hotmail.com."
+          : "Use an email from a known provider like gmail.com or hotmail.com."
+      );
+      if (contactEmail) contactEmail.focus();
+      return;
+    }
+
+    hideEmailError();
 
     // Estado de carga
     submitBtn.disabled = true;
